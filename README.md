@@ -23,3 +23,7 @@ Este proyecto está organizado en 5 carpetas principales (códigos, imágenes g�
 4.  Imágenes Temporales: Esta carpeta es donde se guardan todas las imágenes generadas del Loop del `backend` para poder ser insertadas en cada pdf una vez que se corre el código.
 
 5.  Outputs: Lugar donde se almacenan los pdf, .tex y xlsx del tratamiento de datos. *Nota*: Esta carpeta también tiene una estructura interna según la máquina virtual que se esté utilizando y el actor clave que estemos analizando.
+
+## Paso a Paso 
+
+1. Se debe ejecutar el código `csv_to_rda` para cambiar las bases y asi usar menos espacio en el repositorio (*Al ser un repo libre el espacio es de 2 gb* (creo))
