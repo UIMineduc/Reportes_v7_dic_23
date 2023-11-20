@@ -1,0 +1,949 @@
+---
+#title: "Política de Reactivación Educativa Integral"
+#author: "Pablo Espinosa - Centro de Estudios MINEDUC. Mayo 2023"
+#Editor: "Alonso Arraño - Centro de Estudios MINEDUC. Septiembre 2023"
+header-includes:
+- \usepackage{array}
+- \usepackage[none]{hyphenat}
+- \usepackage{caption}
+- \usepackage{xcolor}
+- \usepackage{fontspec}
+- \captionsetup[table]{name=Tabla}
+- \setlength\parindent{24pt}
+- \usepackage{float}
+- \usepackage{booktabs}
+- \usepackage{pdflscape}
+- \usepackage{graphicx}
+- \usepackage{hhline}
+- \usepackage{ragged2e}
+- \usepackage{longtable}
+- \usepackage{fontawesome}
+- \usepackage{background}
+- \usepackage{siunitx}
+- \usepackage{multirow}
+- \usepackage{tabu}
+- \usepackage{fancybox}
+- \usepackage{calc}
+- \usepackage{lipsum}  
+- \usepackage{tabularx}
+- \usepackage{times,tcolorbox}
+- \tcbuselibrary{raster, skins}
+# - \usepackage[spanish]{babel}
+- \usepackage[UKenglish]{babel}
+- \usepackage{subfigure}
+- \usepackage[para,online,flushleft]{threeparttable}
+- \usepackage{fancyhdr}
+# - \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+# - \usepackage{hyperref}
+# - \usepackage{xurl}
+- \usepackage[hyphens]{url}
+- \addtolength{\headheight}{0.6cm} % make more space for the header
+- \pagestyle{fancy}
+- \renewcommand{\headrulewidth}{0pt} % remove rule below header
+- \renewcommand\sectionmark[1]{}
+- \renewcommand{\arraystretch}{1}
+- \definecolor{azul_gob}{HTML}{1A4672}
+- \definecolor{azul_gob2}{RGB}{26,70,114}
+- \definecolor{rojo_gob}{HTML}{D35765}
+- \definecolor{rojo_gob2}{RGB}{211,87,101}
+- \definecolor{celeste_gob}{HTML}{74C7D0}
+- \definecolor{celeste_gob2}{RGB}{116,199,208}
+# - \definecolor{celeste_gob}{HTML}{6bccd6}
+# - \definecolor{celeste_gob2}{RGB}{107,204,214}
+- \definecolor{amarillo_gob}{HTML}{F4A416}
+- \definecolor{amarillo_gob2}{RGB}{244,164,22}
+- \definecolor{celeclaro_gob}{HTML}{d3deF2}
+- \definecolor{celeclaro_gob2}{RGB}{211,222,242}
+- \definecolor{celesteoscuro_gob}{HTML}{0CB7F2}
+- \definecolor{celesteoscuro_gob2}{RGB}{12,183,242}
+# - \definecolor{pastel_gob}{HTML}{E4db89}
+# - \definecolor{pastel_gob2}{RGB}{228,219,137}
+- \definecolor{morado_gob}{HTML}{9BA0F1}
+- \definecolor{morado_gob2}{RGB}{155,160,241}
+# - \definecolor{morado_gob}{HTML}{613b75}
+# - \definecolor{morado_gob2}{RGB}{97,57,119}
+- \definecolor{amarillooscuro_gob}{HTML}{f3d03e}
+- \definecolor{amarillooscuro_gob2}{RGB}{243,208,62}
+# - \definecolor{rosado_gob}{HTML}{F2e6d9}
+# - \definecolor{rosado_gob2}{RGB}{242,230,217}
+# - \definecolor{azulclaro_gob}{HTML}{007096}
+# - \definecolor{azulclaro_gob2}{RGB}{07,112,150}
+- \definecolor{verde_gob}{HTML}{61B798}
+- \definecolor{verde_gob2}{RGB}{97,183,152}
+- \definecolor{blanco_gob}{HTML}{FAFAFA}
+- \definecolor{blanco_gob2}{RGB}{250,250,250}
+# - \lhead{\vspace{35mm}\textcolor{azul_gob}{\footnotesize{\hspace{-13mm}Plan de Reactivación Educativa 2023}}}
+- \lfoot{\textcolor{azul_gob}{\href{https://reactivacioneducativa.mineduc.cl/}{\footnotesize{\underline{reactivacioneducativa.mineduc.cl}}}}}
+- \usepackage[justification=raggedright, singlelinecheck=false]{caption}
+- \backgroundsetup{scale=1, color=black, opacity=0.9, angle=0, pages=all,contents={\includegraphics[width=\paperwidth,height=\paperheight]{Imagenes genericas/fondo pagina.png}}}
+- \defaultfontfeatures{Mapping=tex-text}
+- \setmainfont{Verdana}
+- \fancyfoot[OR,EL]{\textcolor{azul_gob}{\thepage}}
+- \pagenumbering{arabic}
+- \fancyfoot[C]{}
+- \DeclareCaptionFont{myblue}{\color{azul_gob}}
+- \captionsetup{labelformat=empty}
+- \renewcommand\thefootnote{\textcolor{azul_gob}{\arabic{footnote}}}
+bibliography: bib.bib
+output:
+  pdf_document:
+    latex_engine: xelatex
+    fig_caption: yes
+    fig_crop: no
+    highlight: haddock
+    keep_tex: yes
+    citation_package: natbib
+    number_sections: false
+    extra_dependencies: ["float"]
+classoption: table
+tables: yes
+papersize: Letter
+mainfont: Verdana
+margin_left: 1.5in
+margin_right: 1.5in
+params:
+  desvinc: null
+  desvinc2: null
+  desvinc3: null
+  asis_crit: null
+  url_sin_fin_g: null
+  url_cur_desv_g: null
+  url_cur_desv_g_2: null
+  cod_deprov: null
+  nom_deprov: null
+  n_mat2022: null
+  n_desvinc: null
+  n_desvinc2: null
+  n_desvinc3: null
+  n_mat2023: null
+  n_inasis2023: null
+  url_asis_crit_g: null
+  url_sost_desv_g: null
+  url_sost_desv_g_2: null
+  url_sost_asist_g: null
+  url_sost_asisgrave_g: null
+  resumen_asis_sost: null
+  resumen_desvinc_sost: null
+  resumen_rbd: null
+  n_mat_asis2023: null
+  textos_variables_desvinculados: null
+  textos_variables_retirados: null
+  textos_variables_asistencia: null
+  textos_variables_doble_desvinculados: null
+  pass: null
+
+---
+
+<!--00. CONFIGURACION PAQUETES R-->
+```{r setup, include = FALSE, echo = FALSE}
+#Sys.setlocale("LC_ALL", "ES_ES.UTF-8")
+options(knitr.table.format = "latex")
+library(knitr)
+options(scipen=999) # Desactiva la notaciÃ³n cientÃfica
+options(max.print = 99999999) # Max print de la consola
+opts_chunk$set(  fig.align='center',
+                 external=TRUE,
+                 echo=TRUE,
+                 warning=FALSE,
+                 fig.pos='H')
+
+# library(pacman)
+# 
+# p_load(tidyverse, rio, dplyr, ggplot2, stringr, tidyr, kableExtra, texreg, Publish, broom, lubridate, labelled, pivottabler, knitr, data.table, htmlwidgets, webshot, htmlwidgets, webshot, pander, tinytex, openxlsx)
+
+
+#Ajustes y preparación de BD
+options(kableExtra.latex.load_packages = FALSE)
+require(kableExtra)
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = '-')
+#options(digits = 1)
+
+#Sys.setlocale("LC_ALL","Spanish")
+
+
+```
+
+
+
+
+\sloppy
+\special{pdf:encrypt ownerpw (inteligdatos) userpw (`r params$pass`) length 128 perm 2052}
+
+\begin{titlepage}
+\backgroundsetup{scale=1, color=black, opacity=0.9, angle=0, pages=all,contents={\includegraphics[width=\paperwidth,height=\paperheight]{Imagenes genericas/fondo portada.png}}}
+```{r echo=FALSE, fig.align='right', out.width = '17%'}
+#knitr::include_graphics(file.path(here::here(),"Imagenes genericas","colorMinEducacion.png"))    #('/Imagenes genericas/colorMinEducacion.png', error = FALSE)
+```
+\begin{center}
+\vspace*{10mm}
+\vspace{70mm}
+\textbf{\textcolor{blanco_gob}{\Large{3° Reporte 2023}}}\\
+\vspace{12mm}
+\textbf{\textcolor{blanco_gob}{\huge{Seguimiento de estudiantes con trayectoria educativa interrumpida o irregular}}}\\
+\vspace{12mm}
+\textbf{\textcolor{celeste_gob}{\huge{Dirección de Educación Pública}}}\\
+\vspace{3mm}
+\vspace{10mm}
+\vspace{10mm}
+{\textcolor{blanco_gob}{\normalsize{\textit{Septiembre 2023}}}}\\
+
+\end{center}
+\end{titlepage}
+
+
+\newpage
+\textcolor{celeste_gob}{\vspace{-16mm}\section{Estimadas Sostenedoras y Sostenedores:\\}}
+\vspace{-4mm}
+```{=tex}
+\textcolor{azul_gob}{\normalsize{Junto con saludarlos(as), desde el Centro de Estudios del Ministerio de Educación ponemos a su disposición el tercer reporte del año 2023 para el seguimiento de estudiantes con trayectorias educativas interrumpidas o irregulares.\\
+\\
+Esperamos que este insumo sea de utilidad para el diseño e implementación de estrategias que respondan a la necesidad de revincular a las y los estudiantes que se encuentran fuera del sistema educacional y a mejorar la asistencia promedio en su establecimiento educacional. Estos dos desafíos, mejorar los niveles de asistencia a clases y la revinculación educativa son nuestra prioridad.\\
+\\  
+Para reforzar y apoyar la labor de las comunidades educativas, el Ministerio de Educación ha implementado el Plan de Reactivación Educativa, que tiene dentro de sus componentes la estrategia territorial de revinculación y asistencia, que busca promover la permanencia escolar de niños, niñas y adolescentes con trayectorias educativas interrumpidas o inasistencia grave.\\
+\\
+Los datos oficiales del Centro de Estudios del Mineduc nos señalan que aún nos queda mucho por mejorar. Así, la tarea de traer a las y los estudiantes al aula es un gran desafío que tenemos por delante donde queremos volver a los niveles previos a la pandemia y mejorarlos, así como también lograr que los establecimientos sean espacios seguros y de bienestar para las y los estudiantes del país. Para esto es fundamental que los jardines, escuelas y liceos cuenten con las condiciones propicias para promover los aprendizajes.\\
+\\ 
+También queremos reconocer y promover las medidas que han adoptado las comunidades educativas en torno a los reportes, por ejemplo, compartir la información con los equipos de gestión, implementar sistemas de monitoreo en las escuelas para abordar los casos más críticos y los esfuerzos adicionales para contactar a los estudiantes que aparecen en los reportes y a sus familias, entre otras acciones. Queremos invitarles a seguir trabajando en esto.\\
+\\ 
+Estamos convencidos que las evidencias y las políticas públicas deben llegar directamente a las comunidades educativas, por lo cual desde el Mineduc seguiremos enviando este y otros reportes, con el fin de apoyar la labor diaria a la que se enfrentan en su diversidad de contextos territoriales.\\
+\\ 
+La estructura del presente informe comienza con la descripción de su contenido, un resumen de la información y el listado de estudiantes sin matrícula o retirados en 2023, además de un resumen y listado de estudiantes con baja asistencia durante el mismo periodo. Para su elaboración, se ha utilizado la información actualizada al 31 de agosto del presente año.\\
+\\
+Les invito a revisar la información que ponemos a su disposición, y a analizar estos resultados con sus equipos y comunidades, para que definan en conjunto estrategias locales que permitan abordar la situación de aquellos niños, niñas, adolescentes y personas jóvenes y adultas, que presentan asistencia irregular o se encuentran fuera del centro educativo, con el fin de garantizar condiciones para que todas y todos tengan las mismas oportunidades de aprendizaje.\\
+\\
+Les saluda afectuosamente,\\
+\begin{center}
+Nicolás Cataldo Astorga\\
+Ministro de Educación.
+\end{center}
+}}
+```
+
+
+\newpage
+
+
+
+\textcolor{celeste_gob}{\vspace{-20mm}\section{Contenido del reporte}}
+
+
+\textcolor{azul_gob}{\normalsize{Este reporte busca entregar información respecto a distintas situaciones de trayectoria educativa interrumpida o irregular de estudiantes que están actualmente en alguno de los establecimientos de los SLEP, o para quienes algunos de estos centros educativos es el último registro del que se tiene. En este documento podrá encontrar un resumen agregado a nivel de SLEP y gráficos con el detalle por grado sobre cada una de las situaciones de trayectoria educativa interrumpida o irregular.\\}}  
+\textcolor{azul_gob}{\normalsize{En el siguiente esquema se presentan cuáles son las posibles situaciones de trayectoria educativa interrumpida o irregular que se presentan en este reporte:}} 
+
+
+```{r message = FALSE, echo=FALSE, diagrama, fig.show = "hold", out.height="45%", out.width = "100%", fig.align = "center"}
+#c("N° Estudiantes no matrículados por grado 2022", "Distribución de situación final 2022 de estudiantes no matriculados en 2023")
+
+
+  knitr::include_graphics(paste0(getwd(),"/Imagenes genericas/Diagrama 2023_mayo.png"))
+
+
+```
+
+\vspace{1mm}
+
+\textcolor{azul_gob}{\normalsize{\\La información disponible en este documento\footnote{\textcolor{azul_gob}{La información presentada en este reporte es extraída desde el Sistema de Información General de Estudiantes (SIGE) al 31 de agosto 2023, por lo que puede tener variaciones respecto a datos más actualizados con los que cuente cada establecimiento. Se debe tener en cuenta estas posibles diferencias a la hora del análisis de los datos por parte de la comunidad educativa o sostenedores.}} puede considerar a la matrícula de los niveles de educación parvularia, educación especial y educación regular de niños, niñas y jóvenes de sus establecimientos. La información de la modalidad de "Educación de personas jóvenes y adultas" (EPJA) se dispondrá en un reporte distinto considerando únicamente a la matrícula de estudiantes que cursen esa modalidad.\\}}
+
+\vspace{-2mm}
+```{=tex}
+\begin{center}
+\begin{tcolorbox}[colframe=verde_gob2,width=16.5cm, coltitle=white, title={\textbf{IMPORTANTE}}, halign title=flush left, toprule=0.2mm, top=0.2mm, bottom=0.2mm]
+\justifying{\textcolor{azul_gob}{\footnotesize{\textit{\\Este reporte contiene datos personales que se entrega a los sostenedores y directivos de los establecimientos educativos con el fin exclusivo de generar acciones pertinentes para garantizar el ejercicio efectivo del derecho de la educación, por lo que deberán ser tratados con los resguardos de seguridad de la información necesarios.}}}}
+\end{tcolorbox}
+\end{center}
+```
+
+
+
+
+\newpage
+
+```{=tex}
+\vspace{-15mm}
+\begin{flushleft}
+  \textbf{\textcolor{azul_gob}{Dirección de Educación Pública}}\\
+\end{flushleft}
+\vspace{-10mm}
+\textcolor{rojo_gob}{\section{\huge{1. Estudiantes sin matrícula vigente.}}}
+```
+
+\vspace{-2mm}
+<!-- \begin{flushleft}\textcolor{azul_gob2}{\large{\textbf{Resumen del establecimiento para estudiantes 2022-2023:}}}\end{flushleft} -->
+\textcolor{azul_gob}{\normalsize{\\Resumen de estudiantes del año 2022 o 2023 que no figuran matriculados en el sistema educativo hasta el día 31 de agosto 2023 (no incluye a quienes egresaron de 4° medio del año anterior).}}
+\begin{flushleft}
+
+\begin{tcbitemize}[raster columns=3,raster equal height, colframe=azul_gob2, colback=white, coltitle=white, toprule=0.5mm]
+\tcbitem[title={\textbf{Matrícula 2023 + estud. sin matrícula}}, halign title=center]
+\begin{center}\textcolor{azul_gob}{\Huge{\textbf{`r params$n_mat2023`}}}\end{center}
+\tcbitem[title={\textbf{\small{N° Estud. 2022-2023 sin matrícula vigente}}}, halign title=center, colframe=celeste_gob2]
+\begin{center}\textcolor{azul_gob}{\Huge{\textbf{`r params$n_desvinc + params$n_desvinc2`}}}\end{center}
+\tcbitem[title={\textbf{\small{\% Estud. 2022-2023 sin matrícula vigente}}}, halign title=center, colframe=rojo_gob2]
+\begin{center}\textcolor{azul_gob}{\Huge{\textbf{`r ifelse(as.numeric(params$n_mat2023) != 0, paste0(round(100*as.numeric(params$n_desvinc + params$n_desvinc2)/as.numeric(params$n_mat2023), 1), "\\%"), "-")`}}}\end{center}
+\end{tcbitemize}
+
+
+\end{flushleft}
+\vspace{4mm}
+
+<!-- ----- -->
+\begin{flushleft}
+
+
+\begin{flushleft}\textcolor{celeste_gob2}{\large{\textbf{Detalle de estudiantes 2022-2023 sin matrícula vigente:}}}\end{flushleft}
+\vspace{-2mm}
+\begin{tcbitemize}[raster columns=2, raster equal height, colframe=blanco_gob2, colback=white, coltitle=celeste_gob2, toprule=0.5mm]
+
+\tcbitem[colback=white, colframe=white, halign=center]
+\begin{tcolorbox}[width=6cm, colback=celeste_gob2, colframe=celeste_gob2, halign=center,valign=center, square,circular arc]
+  \begin{center}\textcolor{blanco_gob}{\textbf{\large{N° Estudiantes 2023 retirados dentro del año y que están sin matrícula vigente:\break\break}\fontsize{38}{38}\selectfont{\textcolor{azul_gob}{`r params$n_desvinc2`}}}}\end{center}
+\end{tcolorbox}
+
+\tcbitem[colback=white, colframe=white, halign=center]
+\begin{tcolorbox}[width=6cm, colback=celeste_gob2, colframe=celeste_gob2, halign=center, valign=center, square,circular arc]
+  \begin{center}\textcolor{blanco_gob}{\textbf{\large{N° Estudiantes 2022 que no se han matriculado en todo el 2023:\break \break}\fontsize{38}{38}\selectfont{\textcolor{azul_gob}{`r params$n_desvinc`}}}}\end{center}
+\end{tcolorbox}
+\end{tcbitemize}
+\end{flushleft}
+
+<!-- ----- -->
+
+\vspace{0mm}
+\begin{center}\textcolor{azul_gob}{\rule{8cm}{0.5mm}}\end{center}
+\vspace{0mm}
+
+\begin{flushleft}\textcolor{verde_gob2}{\large{\textbf{Estudiantes 2021 que no se han matriculado ni en 2022 ni 2023:}}}\end{flushleft}
+\vspace{0mm}
+\begin{flushleft}
+  \normalsize{\textcolor{azul_gob}{En este reporte, además de estudiantes del año 2022 y 2023 sin matrícula vigente, se presenta la información de estudiantes que estaban en alguno de los establecimientos SLEP el año 2021 y no se han matriculado en todo el 2022 ni 2023 en ningún otro establecimiento. Estos casos se resumen en el siguiente cuadro:}}\\
+\end{flushleft} 
+
+\vspace{2mm}
+
+\begin{center}
+\begin{tcolorbox}[colframe=verde_gob2,colback=white, width=7.5cm, coltitle=white, title={\textbf{\small{N° Estudiantes 2021 que no se han matriculado ni en 2022 ni 2023}}}, toprule=0.5mm, halign title=center]
+\begin{center}\textcolor{azul_gob}{\Huge{\textbf{`r params$n_desvinc3`}}}\end{center}
+\end{tcolorbox}
+\vspace{6mm}
+\end{center}
+
+
+
+\newpage
+
+
+\vspace{-15mm}
+<!--------- DETALLE RETIRADOS ------------->
+
+\textcolor{azul_gob}{\normalsize{\textbf{\textcolor{rojo_gob}{1.1 Estudiantes 2023 retirados dentro del año y que están sin matrícula vigente:}} \\ \\ \small{Resumen de estudiantes que, habiendo estado matriculados en alguno de los establecimientos SLEP al inicio del 2023, fueron retirados en el transcurso del año y no han estado matriculados en ningún otro establecimiento al 31 de agosto de 2023.}}}
+
+\vspace{-2mm}
+```{r message = FALSE, echo = FALSE, results='asis'}
+desvinc2 <- params$desvinc2
+resumen_sost <- params$resumen_asis_sost
+
+# if(nrow(resumen_sost) > 52 ) {
+#   pander("\\newpage")
+# }
+
+# if(nrow(desvinc2) > 0 ) {
+
+pander("\\begin{flushleft}
+       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 1.1.a:} Cantidad de estudiantes 2023 retirados dentro del año y que no tienen matrícula vigente en ningún otro establecimiento al 31 de agosto de 2023, según SLEP en 2023:}}}
+       \\end{flushleft}
+       \\vspace{-6mm}")
+# }
+
+```
+
+```{r message = FALSE, echo=FALSE, image_grobs9, fig.show = "hold", out.height="86%", out.width = "98%", fig.align = "center"}
+#Gráfico de barras con EEs
+
+desvinc2 <- params$desvinc2
+
+if(nrow(desvinc2) > 0 ) {
+
+knitr::include_graphics(paste0(getwd(),"/", params$url_sost_desv_g_2))
+
+} else{
+pander("\\vspace{40mm}
+       \\begin{center}
+      \\begin{tcolorbox}[colframe=celeste_gob2,width=8.5cm, title=Gráficos no despeglados, coltitle=white]
+     \\begin{flushleft}\\textit{\\textcolor{azul_gob}{En sus establecimientos no hay estudiantes retirados en el 2023 y que se encuentran sin matrícula actualmente.}}\\end{flushleft}
+    \\end{tcolorbox}
+   \\end{center}")
+}
+
+```
+
+
+<!-- 4.1 GRAFICO TORTA NO MATRICULADOS -->
+
+```{r message = FALSE, echo = FALSE, results='asis'}
+desvinc2 <- params$desvinc2
+
+if(nrow(desvinc2) > 0 ) {
+
+pander("\\newpage
+        \\vspace{10mm}
+       \\begin{flushleft}
+       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 1.1.b:} Cantidad de estudiantes 2023 retirados dentro del año y que no tienen matrícula vigente en ningún otro establecimiento al 31 de agosto de 2023, según su último grado en que estuvo matriculado:}}}
+       \\end{flushleft}")
+}  
+
+```
+<!-- \begin{center} -->
+```{r message = FALSE, echo=FALSE, image_grobs8, fig.show = "hold", out.height="50%", out.width = "98%", fig.align = "center"}
+
+desvinc2 <- params$desvinc2
+
+if(nrow(desvinc2) > 0 ) {
+  
+knitr::include_graphics(paste0(getwd(),"/", params$url_cur_desv_g_2))
+
+} 
+
+```
+
+
+\newpage
+
+\vspace{-15mm}
+
+\textcolor{azul_gob}{\normalsize{\textbf{\textcolor{rojo_gob}{1.2 Estudiantes 2022 que no se han matriculado en todo el 2023:}} \\ \\ \small{Resumen de estudiantes que, estando matriculados el año 2022 en alguno de los establecimientos SLEP, no han estado matriculados en ningún otro centro educativo hasta el 31 de agosto 2023 (no incluye a quienes egresaron de 4° medio el año anterior).}}}
+
+<!-- \vspace{2mm} -->
+
+
+```{r message = FALSE, echo = FALSE}
+#Ajustes y preparación de BD
+options(kableExtra.latex.load_packages = FALSE)
+require(kableExtra)
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = '-')
+#options(digits = 1)
+
+```
+
+\vspace{-2mm}
+
+<!-- 3.1 GRAFICO BARRA NO MATRICULADOS POR EE -->
+
+```{r message = FALSE, echo = FALSE, results='asis'}
+desvinc <- params$desvinc
+resumen_sost <- params$resumen_asis_sost
+
+# if(nrow(resumen_sost) > 52 ) {
+#   pander("\\newpage")
+# }
+
+if(nrow(desvinc) > 0 ) {
+
+pander("\\begin{flushleft}
+       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 1.2.a:} Cantidad de estudiantes 2022 que no se han matriculado en todo el 2023 en ningún otro centro educativo, según SLEP 2022:}}}
+       \\end{flushleft}
+       \\vspace{-6mm}")
+}
+
+```
+
+```{r message = FALSE, echo=FALSE, image_grobs4, fig.show = "hold", out.height="86%", out.width = "98%", fig.align = "center"}
+#Gráfico de barras con EEs
+
+desvinc <- params$desvinc
+
+if(nrow(desvinc) > 0 ) {
+
+knitr::include_graphics(paste0(getwd(),"/", params$url_sost_desv_g))
+
+} else{
+pander("\\vspace{40mm}
+       \\begin{center}
+      \\begin{tcolorbox}[colframe=celeste_gob2,width=8.5cm, title=Gráficos no despeglados, coltitle=white]
+     \\begin{flushleft}\\textit{\\textcolor{azul_gob}{En sus establecimientos no hay estudiantes del 2022 no matriculados en 2023}}\\end{flushleft}
+    \\end{tcolorbox}
+   \\end{center}")
+}
+
+```
+
+
+<!-- 4.1 GRAFICO TORTA NO MATRICULADOS -->
+
+```{r message = FALSE, echo = FALSE, results='asis'}
+desvinc <- params$desvinc
+
+if(nrow(desvinc) > 0 ) {
+
+pander("\\newpage
+        \\vspace{10mm}
+       \\begin{flushleft}
+       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 1.2.b:} Cantidad de estudiantes 2022 que no se han matriculado en todo el 2023 en ningún otro establecimiento, según SLEP en 2022:}}}
+       \\end{flushleft}")
+}  
+
+```
+\begin{center}
+```{r message = FALSE, echo=FALSE, image_grobs3, fig.show = "hold", out.height="50%", out.width = "98%", fig.align = "center"}
+
+desvinc <- params$desvinc
+
+if(nrow(desvinc) > 0 ) {
+  
+knitr::include_graphics(paste0(getwd(),"/", params$url_cur_desv_g))
+
+} 
+
+```
+
+```{r message = FALSE, echo = FALSE, results='asis'}
+desvinc <- params$desvinc
+
+if(nrow(desvinc) > 0 ) {
+
+pander("\\vspace{5mm}
+        \\begin{flushleft}
+       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 1.2.c:} Situación final 2022 de estudiantes que no se han matriculado en todo el 2023 en ningún establecimiento:}}}
+       \\end{flushleft}")
+}
+
+```
+
+```{r message = FALSE, echo=FALSE, image_grobs5, fig.show = "hold", out.height="32%", out.width = "98%", fig.align = "center"}
+#c("N° Estudiantes no matrículados por curso 2022", "Distribución de situación final 2022 de estudiantes no matriculados en 2023")
+
+desvinc <- params$desvinc
+
+if(nrow(desvinc) > 0 ) {
+
+knitr::include_graphics(paste0(getwd(),"/", params$url_sin_fin_g))
+
+}
+
+```
+\end{center}
+
+
+
+
+
+
+
+<!-- \newpage -->
+
+
+\begin{landscape}
+```{r message = FALSE, echo = FALSE, results='asis'}
+
+resumen_desvinc_sost <- params$resumen_desvinc_sost
+
+if(nrow(resumen_desvinc_sost) > 0 ) {
+  
+pander("\\newpage
+\\textcolor{rojo_gob}{\\large{\\textbf{\\\\Resumen de número de estudiantes sin matrícula vigente, según SLEP.\\\\}}}
+\\renewcommand{\\arraystretch}{1}")
+}
+```
+
+\renewcommand{\arraystretch}{1.1}
+```{r message = FALSE, echo = FALSE, results='asis'}
+
+resumen_desvinc_sost <- params$resumen_desvinc_sost
+
+if(nrow(resumen_desvinc_sost) > 0 ) {
+  
+  #resumen_desvinc_sost <- resumen_desvinc_sost %>% select("nom_rbd2022r", "curso2022r", "n_total", "n", "porc_desvinc")
+  resumen_desvinc_sost <- resumen_desvinc_sost %>% select("nombre_sost_rbd2022", "n_mat_teo_total23", "desv_total23", "porc_total23", "n_ret", "n_desv", "n_dobledesv")
+  
+  colnames(resumen_desvinc_sost) <- c("Nombre SLEP", "Matrícula 2023 + estud. sin matrícula", "N° Estud. 2022-2023 sin matrícula vigente", "% Estud. 2022-2023 sin matrícula vigente", "N° Estud. 2023 retirados en el año y sin matrícula vigente", "N° Estud. 2022 no matriculados en 2023", "Detalle N° Estud. 2021 no matriculados ni en 2022 ni 2023")
+  
+  kbl1 <- kable(resumen_desvinc_sost, "latex", booktabs = T, longtable = T, align = c('l','c','c','c','c','c','c'), caption = "\\begin{flushleft}{\\textcolor{azul_gob}{\\textbf{Tabla 1:} Detalle de N° de estudiantes sin matrícula vigente, según establecimiento.}}\\end{flushleft}", linesep = "")
+  
+  kbl1 %>%
+    kable_minimal(c("striped", "hover")) %>%
+    kable_styling(font_size = 5.5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>%
+    row_spec(0, bold = T, color = "#004677") %>%
+    column_spec(column = 1:7, color = "#004677") %>%
+    column_spec(column = c(1), width = "30em") %>%
+    column_spec(column = c(2,3), width = "11em") %>%
+    column_spec(column = c(5,6), width = "12em") %>%
+    column_spec(column = c(4), width = "11em", bold = T, color = "#0f69b4") %>%
+    column_spec(column = c(7), width = "13em")  %>%
+    collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>%
+    add_header_above(c("","Resumen no matriculados 2022-2023" = 3, "Detalle no matriculados 2022-2023" = 2, "Detalle no matriculados 2021" = 1), color = "#0f69b4") %>%
+    gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>% 
+    gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .)
+  
+}
+
+
+```
+
+\end{landscape}
+
+
+
+
+
+
+\newpage
+
+```{=tex}
+\begin{flushleft}
+\vspace{-15mm}
+\begin{flushleft}
+  \small{\textbf{\textcolor{azul_gob}{Dirección de Educación Pública}}}\\
+\end{flushleft}
+\vspace{-10mm}
+\end{flushleft}
+```
+\textcolor{rojo_gob}{\section{\huge{2. Estudiantes con baja asistencia 2023.}}}
+
+\vspace{-2mm}
+
+\textcolor{azul_gob}{\normalsize{\\Resumen de estudiantes que durante agosto 2023 muestran una asistencia acumulada bajo 85\%. Ello se considera inasistencia grave (o crítica cuando es bajo 50\%), ya que podría estar anticipando la interrupción del proceso educativo de parte de los y las estudiantes.}}
+
+\vspace{4mm}
+
+
+\begin{flushleft}
+
+\begin{tcbitemize}[raster columns=3,raster equal height, colframe=azul_gob2, colback=white, coltitle=white, toprule=0.5mm]
+\tcbitem[title={\textbf{Total de matrícula 2023}}, halign title=center]
+\begin{center}\textcolor{azul_gob}{\Huge{\textbf{`r params$n_mat_asis2023`}}}\end{center}
+\tcbitem[title={\small{\textbf{N° Estudiantes con asistencia menor a 85\%}}}, halign title=center, colframe=celeste_gob2]
+\begin{center}\textcolor{azul_gob}{\Huge{\textbf{`r params$n_inasis2023`}}}\end{center}
+\tcbitem[title={\small{\textbf{\% Estudiantes con asistencia menor a 85\%}}}, halign title=center, colframe=rojo_gob2]
+\begin{center}\textcolor{azul_gob}{\Huge{\textbf{`r paste0(round(100*as.numeric(params$n_inasis2023)/as.numeric(params$n_mat_asis2023), 1), "\\%")`}}}\end{center}
+\end{tcbitemize}
+
+
+\end{flushleft}
+
+```{r message = FALSE, echo = FALSE}
+#Ajustes y preparación de BD
+options(kableExtra.latex.load_packages = FALSE)
+require(kableExtra)
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = '-')
+#options(digits = 1)
+
+```
+
+\vspace{10mm}
+
+
+```{r message = FALSE, echo = FALSE, results='asis'}
+
+pander("\\begin{flushleft}
+       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 2.1:} Distribución de estudiantes de establecimientos SLEP según su rango de asistencia 2023:}}}
+       \\end{flushleft}")
+
+```
+
+
+\begin{center}
+```{r message = FALSE, echo=FALSE, fig.show = "hold", out.width = "98%", fig.ncol = 1, fig.align = "default", fig.subcap=c("N° Estudiantes", "Distribución")}
+
+knitr::include_graphics(paste0(getwd(),"/", params$url_sost_asist_g))
+
+```
+\end{center}
+
+
+\newpage
+
+
+```{r message = FALSE, echo = FALSE}
+#Ajustes y preparación de BD
+options(kableExtra.latex.load_packages = FALSE)
+require(kableExtra)
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = '-')
+#options(digits = 1)
+
+```
+
+```{r message = FALSE, echo = FALSE, results='asis'}
+#asis_crit5 <- params$asis_crit
+#asis_crit5 <- asis_crit %>% filter(asistencia_categorias1 != 5)
+resumen_sost <- params$resumen_asis_sost
+# if(nrow(resumen_sost) > 52 ){
+#   pander("\\newpage")
+# }
+
+pander("\\begin{flushleft}
+     \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 2.2:} Porcentaje de estudiantes con asistencia bajo 85\\%, por SLEP:}}}
+     \\end{flushleft}")
+#}
+```
+\begin{center}
+
+\vspace{5mm}
+```{r message = FALSE, echo=FALSE, fig.show = "hold", out.height="95%", out.width = "98%", fig.ncol = 1, fig.align = "default", fig.subcap=c("N° Estudiantes", "Distribución")}
+
+knitr::include_graphics(paste0(getwd(),"/", params$url_sost_asisgrave_g))
+
+
+```
+\end{center}
+
+\newpage
+```{r message = FALSE, echo = FALSE, results='asis'}
+
+
+pander("\\begin{flushleft}
+       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 2.3:} Porcentaje de estudiantes con asistencia bajo 85\\%, por grado 2023:}}}
+       \\end{flushleft}")
+  
+#}
+```
+
+```{r message = FALSE, echo=FALSE, fig.show = "hold", out.height="50%", out.width = "98%", fig.ncol = 1, fig.align = "center"}
+#asis_crit5 <- params$asis_crit
+#asis_crit5 <- asis_crit %>% filter(asistencia_categorias1 != 5)
+
+#if(nrow(asis_crit5) > 0 ) {
+  knitr::include_graphics(paste0(getwd(),"/", params$url_asis_crit_g))
+#}
+```
+
+
+
+\begin{landscape}
+
+
+
+\newpage
+\textcolor{rojo_gob}{\large{\textbf{\\2.1 Datos de asistencia por SLEP.\\}}}
+\renewcommand{\arraystretch}{0.8}
+\setlength\tabcolsep{1.1pt}
+```{r message = FALSE, echo = FALSE, results='asis'}
+
+resumen_sost <- params$resumen_asis_sost
+#print(nrow(resumen_sost))
+if(nrow(resumen_sost) > 0 ) {
+
+  resumen_sost <- resumen_sost %>% select("nombre_sost_rbd2022", "asis_marzo", 
+                                          "asis_abril", "asis_mayo",
+                                          "asis_junio", "asis_julio", "asis_agosto",
+                                          #"asis_septiembre", "asis_octubre", "asis_noviembre",
+                                          "asis_promedio", "n_total", "n", "porc_asis_crit")
+
+  colnames(resumen_sost) <- c("Nombre SLEP", "Asistencia promedio marzo",  "Asistencia promedio abril", "Asistencia promedio mayo",
+                              "Asistencia promedio junio", "Asistencia promedio julio", "Asistencia promedio agosto",
+                              #"Asistencia promedio sept.", "Asistencia promedio octubre", "Asistencia promedio nov.", 
+                              "Asistencia promedio acumulada", "Matrícula total 2023", "Estudiantes con asistencia bajo 85%", "% Estudiantes con asistencia bajo 85%")
+  
+  kbl1 <- kable(resumen_sost, "latex", booktabs = T, longtable = T,  align = c("l",'c','c','c','c','c','c','c','c','c','c'), caption = "\\textcolor{azul_gob}{\\textbf{Tabla 2.1:} Detalle por SLEP de asistencia promedio y porcentaje de estudiantes con asistencia bajo 85\\%.}", linesep = "")
+  
+   kbl1 %>%
+     kable_minimal(c("hover")) %>%
+     kable_styling(font_size = 6, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>%
+     column_spec(column = 1:11, color = "#004677") %>%
+     row_spec(0, bold = T, color = "#004677")  %>%
+     column_spec(column = c(1), width = "25em", bold = T) %>%
+     column_spec(column = c(2:7), width = "8em") %>%
+     column_spec(column = c(8), bold = T, color = "#0f69b4", width = "9em") %>%
+     column_spec(column = c(9:10), width = "10em") %>%
+     column_spec(column = c(11), width = "10em", bold = T, color = "#0f69b4") %>%
+     collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>%
+     add_header_above(c("", "Detalle promedio de asistencia" = 7, "Estudiantes 2023 con asistencia bajo 85%" = 3), color = "#0f69b4") %>%
+     gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>%
+     gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .) #resumen_asis_sost
+   
+}#  else{
+#   pander("\\vspace{70mm}
+#           \\begin{center}
+#           \\begin{tcolorbox}[colframe=celeste_gob2,width=8.5cm, title=Lista vacía, coltitle=white]
+#           \\begin{flushleft}\\textit{\\textcolor{azul_gob}{Su establecimiento no tiene estudiantes en este rango de asistencia.}}\\end{flushleft}
+#           \\end{tcolorbox}
+#           \\end{center}")
+# }
+
+
+
+```
+
+
+
+
+\end{landscape}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- \begin{landscape}  -->
+<!-- \newpage -->
+<!-- \begin{center} -->
+<!-- \LARGE\textcolor{azul_gob}{\textbf{Anexos}}\\ -->
+<!-- \end{center} -->
+<!-- \renewcommand{\arraystretch}{0.8} -->
+<!-- \setlength\tabcolsep{1.4pt} -->
+<!-- ```{r message = FALSE, echo = FALSE, results='asis'} -->
+
+
+<!--     pander("\\textcolor{rojo_gob}{\\large{\\textbf{\\\\ANEXO A. Resumen por establecimiento de estudiantes no matriculados y con asistencia bajo 85\\%.\\\\}}}") -->
+
+<!-- d = 0 -->
+<!-- resumen_rbd_mkd <- params$resumen_rbd -->
+<!-- resumen_rbd_mkd <- resumen_rbd_mkd %>% filter(!(is.na(`Nombre establecimiento`) | `Nombre establecimiento` == "")) -->
+<!-- #  -->
+<!-- # for(comuna in unique(resumen_rbd_mkd$`Nombre establecimiento`)[1]){ -->
+<!-- #   #print(comuna) -->
+<!-- #   d <- d + 1 -->
+<!--  # resumen_rbd_mkd0 <- resumen_rbd_mkd %>% filter(`Nombre establecimiento` == comuna) #%>% select(-c(1,5)) #Se saca comuna y nombre sostenedor -->
+
+
+<!--   kbl1 <- kable(resumen_rbd_mkd, "latex", booktabs = T, longtable = T,  align = c("l",'l','l','c','c','c','c','c','c','c','c','c','c','c'), caption = paste0("\\textcolor{azul_gob}{\\textbf{Tabla A:} Resumen por establecimiento de estudiantes sin matrícula vigente y estudiantes con asistencia bajo 85\\%.}"), linesep = "")# %>% landscape() -->
+
+<!--   kbl1 <- kbl1 %>%  kable_minimal(c("hover")) %>% kable_styling(font_size = 5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>% column_spec(column = 1:14, color = "#004677") %>% column_spec(column = c(5,8,11), bold = T, color = "#0f69b4") %>% column_spec(column = c(1), width = "4em") %>% column_spec(column = c(2), width = "20em", bold = T) %>% column_spec(column = c(3), width = "6em") %>% column_spec(column = c(4), width = "6.3em") %>% column_spec(column = c(5), width = "5.7em", bold = T) %>%column_spec(column = c(4:14), width = "9em", bold = T)  %>% add_header_above(c("","","", "Promedio Asistencia 2023" = 2, "Estudiantes con asistencia bajo 85%" = 3, "Resumen no matriculados 2022-2023" = 3, "Detalle no matriculados" = 3), color = "#004677") %>% row_spec(0, bold = T, color = "#004677") %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major")  # %>% gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>% gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .) -->
+
+
+
+
+
+
+<!--   print(kbl1) -->
+
+<!-- # } -->
+<!-- ``` -->
+
+<!-- \newpage -->
+<!-- \setlength\tabcolsep{2.5pt} -->
+<!-- \renewcommand{\arraystretch}{1.1} -->
+
+<!-- ```{r message = FALSE, echo = FALSE, results='asis'} -->
+
+<!-- desvinc2 <- params$desvinc2 -->
+<!-- pander("\\textcolor{rojo_gob}{\\large{\\textbf{\\\\ANEXO B. Listado por establecimiento de estudiantes 2023 retirados en mayo y que están sin matrícula vigente en ningún otro establecimiento al 31 de mayo de 2023.\\\\}}}") -->
+
+<!-- if(nrow(desvinc2) > 0 ){ -->
+
+<!--   desvinc2_rmk <- desvinc2 %>% mutate(nom_rbd_ret2 = paste0(nom_rbd_ret, " (RBD: ", rbd_ret, ")")) %>% select("nom_rbd_ret2", "run_alu2_ret", "nom_alu_ret", "app_alu_ret", "apm_alu_ret", "nom_grado_ret", "gen_alu_ret", "edad_alu_ret", "nom_com_alu_ret", "fec_ret_rbd_ret", "valid_estud") -->
+<!--   colnames(desvinc2_rmk) <- c("Nombre Establecimiento y RBD", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Grado en 2023", "Sexo", "Edad 2023", "Comuna de residencia 2023", "Fecha de retiro", "Inscrita/o para examen de validación 2023") -->
+
+<!-- kbl1 <- kable(desvinc2_rmk, "latex", booktabs = T, longtable = T, align = c('l', "l", 'l', 'l', 'l', 'l', 'c', 'c', 'l', 'c', 'c'), caption = "\\begin{flushleft}{\\textcolor{azul_gob}{\\textbf{Tabla B:} Nómina de estudiantes 2023 retirados en mayo y que están sin matrícula vigente en ningún otro establecimiento al 31 de mayo de 2023.}}\\end{flushleft}", linesep = "") -->
+
+
+
+<!-- kbl1 %>%  kable_minimal(c("striped", "hover")) %>% kable_styling(font_size = 5.5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>% column_spec(column = 1:11, color = "#004677") %>% column_spec(column = c(2), width = "7em") %>% column_spec(column = c(7, 8), width = "3em") %>% column_spec(column = c(3), width = "13em") %>% column_spec(column = c(6), width = "11em") %>% column_spec(column = c(4, 5, 9), width = "7.5em")  %>% column_spec(column = c(7), width = "6em") %>% column_spec(column = c(1), width = "22em") %>% column_spec(column = c(8), width = "5em") %>% column_spec(column = c(10, 11), width = "8em") %>%  row_spec(0, bold = T, color = "#0f69b4", font_size = 5.8) %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>% gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>%  -->
+<!--   gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .) -->
+
+<!-- } else{ -->
+<!--   pander("\\vspace{40mm} -->
+<!--           \\begin{center} -->
+<!--           \\begin{tcolorbox}[colframe=celeste_gob2,width=8.5cm, title=Lista vacía, coltitle=white] -->
+<!--           \\begin{flushleft}\\textit{\\textcolor{azul_gob}{Sus establecimientos no tienen estudiantes retirados en 2023 sin matrícula actual.}}\\end{flushleft} -->
+<!--           \\end{tcolorbox} -->
+<!--           \\end{center}") -->
+<!-- } -->
+<!-- ``` -->
+
+
+
+<!-- \newpage -->
+<!-- ```{r message = FALSE, echo = FALSE, results='asis'} -->
+
+
+<!--   pander("\\textcolor{rojo_gob}{\\large{\\textbf{\\\\ANEXO C. Listado por establecimiento de estudiantes 2022 que no se han matriculado en mayo 2023 en ningún otro centro educativo.\\\\}}}") -->
+<!--   desvinc <- params$desvinc -->
+
+<!--   desvinc_rmkd <- desvinc %>%  mutate(nom_rbd_2022r2 = paste0(nom_rbd_2022r, " (RBD: ", rbd_2022r, ")")) %>% select("nom_rbd_2022r2", "run_alu2", "nom_alu2022", "app_alu2022", "apm_alu2022", "nom_grado", "edad_alu_2022r", "gen_alu_2022r", "nom_com_alu2022", "sit_fin_r_2022r", "cert_val_22", "valid_estud") -->
+<!--   colnames(desvinc_rmkd) <- c("Nombre Establecimiento y RBD", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Grado en 2022", "Edad 2022", "Género", "Comuna de residencia 2022", "Situación final 2022",  -->
+<!--                               "Validó estudios en 2022", "Inscrita/o para examen de validación 2023") -->
+
+
+<!-- if(nrow(desvinc) > 0 ){ -->
+
+
+<!-- kbl1 <- kable(desvinc_rmkd, "latex", booktabs = T, longtable = T, align = c('l', "l", 'l', 'l', 'l', 'l', 'c', 'c', 'l', 'c', 'c', 'c'), caption = "\\begin{flushleft}{\\textcolor{azul_gob}{\\textbf{Tabla C:} Nómina de estudiantes que, estando matriculados el año 2022 en uno de sus establecimientos, no han retornado al año escolar en todo el 2023 y no se encuentran matriculados en ningún otro establecimiento al 31 de mayo 2023.}}\\end{flushleft}", linesep = "") -->
+
+<!-- kbl1 %>%  kable_minimal(c("striped", "hover")) %>% kable_styling(font_size = 5.5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>% column_spec(column = 1:12, color = "#004677") %>% column_spec(column = c(2), width = "7em") %>% column_spec(column = c(7, 8), width = "3em") %>% column_spec(column = c(3), width = "13em") %>% column_spec(column = c(3), width = "11em") %>% column_spec(column = c(4, 5, 9), width = "7.5em")  %>% column_spec(column = c(7), width = "6em") %>% column_spec(column = c(1), width = "22em") %>% column_spec(column = c(8), width = "5em") %>% column_spec(column = c(10, 11, 12), width = "8em") %>%  row_spec(0, bold = T, color = "#0f69b4", font_size = 5.8) %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>% gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>%  -->
+<!--   gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .) -->
+
+<!-- } else{ -->
+<!--   pander("\\vspace{40mm} -->
+<!--           \\begin{center} -->
+<!--           \\begin{tcolorbox}[colframe=celeste_gob2,width=8.5cm, title=Lista vacía, coltitle=white] -->
+<!--           \\begin{flushleft}\\textit{\\textcolor{azul_gob}{Sus establecimientos no tienen estudiantes 2022 no matriculados en 2023.}}\\end{flushleft} -->
+<!--           \\end{tcolorbox} -->
+<!--           \\end{center}") -->
+<!-- } -->
+
+
+
+
+<!-- # } -->
+<!-- ``` -->
+
+
+
+<!-- \newpage -->
+<!-- ```{r message = FALSE, echo = FALSE, results='asis'} -->
+
+
+<!--   pander("\\textcolor{rojo_gob}{\\large{\\textbf{\\\\ANEXO D. Listado por establecimiento de estudiantes 2021 que no se han matriculado ni en 2022 ni 2023 en ningún otro establecimiento al 31 de mayo de 2023.\\\\}}}") -->
+<!--   desvinc3 <- params$desvinc3 -->
+
+
+<!--   desvinc3_rmkd <- desvinc3 %>%  mutate(nom_rbd = paste0(nom_rbd, " (RBD: ", rbd, ")")) %>% select("nom_rbd", "run_alu2", "nom_alu", "app_alu", "apm_alu", "nom_grado", "gen_alu", "edad_alu", "nom_com_alu", "sit_fin_r", "cert_val_21", "cert_val_22", "insc_val_23") -->
+
+<!-- colnames(desvinc3_rmkd) <- c("Nombre Establecimiento y RBD", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Grado en 2021", "Sexo", "Edad 2021", "Comuna de residencia 2021", "Situación final 2021", "Validó estudios en 2021", "Validó estudios en 2022", "Inscrita/o para examen de validación 2023") -->
+
+
+<!-- if(nrow(desvinc3) > 0 ){ -->
+
+
+<!-- kbl1 <- kable(desvinc3_rmkd, "latex", booktabs = T, longtable = T, align = c('l', "l", 'l', 'l', 'l', 'l', 'c', 'c', 'l', 'c', 'c', 'c','c'), caption = "\\begin{flushleft}{\\textcolor{azul_gob}{\\textbf{Tabla D:} Nómina de estudiantes 2021 que no se han matriculado ni en 2022 ni 2023 en ningún otro establecimiento al 31 de mayo de 2023.}}\\end{flushleft}", linesep = "") -->
+
+<!-- kbl1 %>%  kable_minimal(c("striped", "hover")) %>% kable_styling(font_size = 5.5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>% column_spec(column = 1:13, color = "#004677") %>% column_spec(column = c(2), width = "7em") %>% column_spec(column = c(7, 8), width = "3em") %>% column_spec(column = c(3), width = "13em") %>% column_spec(column = c(6), width = "11em") %>% column_spec(column = c(4, 5, 9), width = "7.5em")  %>% column_spec(column = c(7), width = "6em") %>% column_spec(column = c(1), width = "22em") %>% column_spec(column = c(8), width = "5em") %>% column_spec(column = c(10:13), width = "8em") %>%  row_spec(0, bold = T, color = "#0f69b4", font_size = 5.8) %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>% gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>%  -->
+<!--   gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .) -->
+
+<!-- } else{ -->
+<!--   pander("\\vspace{40mm} -->
+<!--           \\begin{center} -->
+<!--           \\begin{tcolorbox}[colframe=celeste_gob2,width=8.5cm, title=Lista vacía, coltitle=white] -->
+<!--           \\begin{flushleft}\\textit{\\textcolor{azul_gob}{Sus establecimientos no tienen estudiantes 2021 no matriculados ni en 2022 ni 2023.}}\\end{flushleft} -->
+<!--           \\end{tcolorbox} -->
+<!--           \\end{center}") -->
+<!-- } -->
+
+
+
+
+<!-- # } -->
+<!-- ``` -->
+
+
+<!-- \end{landscape}  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

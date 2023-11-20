@@ -18,7 +18,7 @@ Este proyecto está organizado en 5 carpetas principales (códigos, imágenes g�
 
 2.  Imágenes Génericas: Esta carpeta tiene los logos ministeriales junto también con algunas fuentes que se requieren.
 
-3.  Inputs: En esta carpeta se cargan los 2 archivos fijos (A) Nombre_grados y (B) Tabla variables.Nota:es posible agregar un tercer archivo fijo (C) que sea la carta al ministro. </font>
+3.  Inputs: En esta carpeta se cargan los 2 archivos fijos (A) Nombre_grados y (B) Tabla variables.*Nota:es posible agregar un tercer archivo fijo (C) que sea la carta al ministro.*
 
 4.  Imágenes Temporales: Esta carpeta es donde se guardan todas las imágenes generadas del Loop del `backend` para poder ser insertadas en cada pdf una vez que se corre el código.
 
