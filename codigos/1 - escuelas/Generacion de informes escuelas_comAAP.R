@@ -11,15 +11,10 @@
 Sys.setlocale("LC_ALL","en_US.UTF-8")
 library(pacman)
 
-# Original
-# p_load(tidyverse, rio, dplyr, ggplot2, stringr, tidyr, kableExtra, 
-#        texreg, Publish, broom, ggpubr, lubridate, labelled, Hmisc, pivottabler, knitr, data.table, plotly, 
-#        tictoc, htmlwidgets, webshot, tinytex)
-
 #Opcional - nuevo- se excluyen ggpubr y Hmisc que tienen problemas en amazon-linux
 p_load(tidyverse, rio, dplyr, ggplot2, stringr, tidyr, kableExtra, 
        texreg, Publish, broom, lubridate, labelled, pivottabler, knitr, data.table, plotly, 
-       tictoc, htmlwidgets, webshot, tinytex,here,pander, openxlsx)
+       tictoc, htmlwidgets, webshot, tinytex,here,pander, openxlsx,rmarkdown)
 #pander es necesario
 
 
@@ -37,11 +32,13 @@ opts_chunk$set(  fig.align='center',
 
 # install.packages('reticulate')
 # reticulate::install_miniconda()
-reticulate::conda_install('r-reticulate', 'python-kaleido')
-reticulate::conda_install('r-reticulate', 'plotly', channel = 'plotly')
+#reticulate::conda_install('r-reticulate', 'python-kaleido')
+#reticulate::conda_install('r-reticulate', 'plotly', channel = 'plotly')
 reticulate::use_miniconda('r-reticulate')
 
-
+"Nota esta sección debe modificarse"
+mes <- "Noviembre" 
+mes_data <- "octubre"
 #**************************************************************************************************************************/
 # 1. Lectura de BBDD  ----------------------------------------------------------------
 #**************************************************************************************************************************/
@@ -50,19 +47,18 @@ reticulate::use_miniconda('r-reticulate')
 #Sys.setlocale("LC_ALL","en_US.UTF-8")
 
 #Carga de BD de datos
-#{
 #Se lee datos de estudiantes desvinculados y de asistencia
 
-bd <- fread("Inputs/Desvinculacion_agosto_2023_2.csv", encoding="UTF-8") 
+bd <- fread("Inputs/", encoding="UTF-8") 
 colnames(bd) <- tolower(colnames(bd))
 
-bd_asis <- fread("Inputs/202309_inasistencia_grave_agosto.csv", encoding="UTF-8")
+bd_asis <- fread("Inputs/", encoding="UTF-8")
 colnames(bd_asis) <- tolower(colnames(bd_asis))
 
 
 #Desvinculados intranual
 #Parvularia
-bd_desvinc_intran <- fread("Inputs/retirados_sin_mat_agosto_parv_val_v2.csv", encoding="UTF-8")
+bd_desvinc_intran <- fread("Inputs/", encoding="UTF-8")
 colnames(bd_desvinc_intran) <- tolower(colnames(bd_desvinc_intran))
 
 #Se añaden nuevas variables
@@ -95,15 +91,14 @@ doble_desvinc <- fread("Inputs/Desvinculados_2021_2023.csv")
 
 
 #descarga de textos para tablas de variables.
+#se demora en cargar menos de 1 segundo cada base asi que no vale la pena hacer cambios acá
 textos_variables_desvinculados <- openxlsx::read.xlsx("Inputs/Tabla variables.xlsx", sheet = "Desvinculados")
 textos_variables_retirados <- openxlsx::read.xlsx("Inputs/Tabla variables.xlsx", sheet = "Retirados")
 textos_variables_asistencia <- openxlsx::read.xlsx("Inputs/Tabla variables.xlsx", sheet = "Asistencia")
 textos_variables_doble_desvinculados <- openxlsx::read.xlsx("Inputs/Tabla variables.xlsx", sheet = "Doble_desvinculados")
-#se demora en cargar menos de 1 segundo cada base asi que no vale la pena hacer cambios acá
 
 #Se selecciona rut y columnas de deserción intraanual para hacer la comparación
-bd_desvinc_intran_r <- bd_desvinc_intran %>%  select("run_alu", "validacion_estudios",  "desertor_intra")#,  "desertor_intra_validacion")   #select(2, 67, 68, 70, 71)   
-# colnames(bd_desvinc_intran)
+bd_desvinc_intran_r <- bd_desvinc_intran %>%  select("run_alu", "validacion_estudios",  "desertor_intra")  
 
 #Se crea otro data frame con la columnas de datos de los estudiantes retirados.
 bd_desvinc_intran_r2 <- bd_desvinc_intran %>% select("run_alu", "rbd", "nom_alu", "app_alu", "apm_alu", "gen_alu", "edad_alu", "nom_com_alu", "cod_grado", "cod_ense", "fec_ret_rbd", "run_alu2") 
@@ -114,42 +109,28 @@ colnames(bd_desvinc_intran_r2)
 #Unión bd_desvinc e intraanual
 bd <- full_join(bd, bd_desvinc_intran_r, by = "run_alu")
 
-table(bd$desert_glob_total_aju_agosto_2023, bd$desertor_intra, useNA = "ifany")
+table(bd$desert_glob_total_aju_octubre_2023, bd$desertor_intra, useNA = "ifany")
 
 #Se define categoría para tablas de deserción
 
-bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_agosto_2023 == 1 & desertor_intra == 1, "Retirado 2023", "otro"))
-bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_agosto_2023 == 0, "No desertor", categoria_desert))
+bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 1 & desertor_intra == 1, "Retirado 2023", "otro"))
+bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 0, "No desertor", categoria_desert))
 bd <- bd %>% mutate(categoria_desert = ifelse(desertor_intra == 1, "Retirado 2023", categoria_desert))
-bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_agosto_2023 == 1 & is.na(desertor_intra), "Desercion incidencia", categoria_desert))
+bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 1 & is.na(desertor_intra), "Desercion incidencia", categoria_desert))
 
 
 ## Sobre la validacion de estudios
 bd <- bd %>% mutate(valid_estud = ifelse(validacion_estudios == 1 | valida_estudios == 1, "Sí", "No"))
 bd <- bd %>% mutate(valid_estud = ifelse(is.na(valid_estud), "No", valid_estud))
 
-
 bd <- bd %>% mutate(cert_val_22 = ifelse(cert_val_22 == 1, "Sí", "No"))
 bd <- bd %>% mutate(cert_val_22 = ifelse(is.na(cert_val_22), "No", cert_val_22))
-
-
-
 
 pp <- bd %>% filter(cod_depe2_2022r == 3)
 
 #**************************************************************************************************************************/
 # 2. Gestión de BBDD  ----------------------------------------------------------------
 #**************************************************************************************************************************/
-
-
-# Se pasa variable cur_deser_g con labels entendibles. (11 = 3° medio HC, 12 = 3° medio TP, 13 = 4° medio HC, 14 = 4° medio TP)
-# bd$cur_deser_g <- factor(bd$cur_deser_g, levels = c(1:14), labels = c("1° básico", "2° básico", "3° básico", "4° básico", "5° básico", "6° básico", "7° básico", "8° básico", 
-#                                                                       "1° medio", "2° medio", "3° medio HC", "3° medio TP", "4° medio HC", "4° medio TP"))
-# 
-# table(bd$cur_deser_g, useNA = "always")
-# # Se pasa variable curso2022 labels entendibles. (11 = 3° medio HC, 12 = 3° medio TP, 13 = 4° medio HC, 14 = 4° medio TP)
-# bd$curso2022r <- factor(bd$curso2022r, levels = c(1:14), labels = c("1° básico", "2° básico", "3° básico", "4° básico", "5° básico", "6° básico", "7° básico", "8° básico", 
-#                                                                       "1° medio", "2° medio", "3° medio HC", "3° medio TP", "4° medio HC", "4° medio TP"))
 
 #Recodificamos variable región
 bd$cod_reg_rbd2022r2 <- factor(bd$cod_reg_rbd_2022r, levels = c(-15:0), labels = c("Región de Arica y Parinacota","Región de Tarapacá", "Región de Antofagasta", "Región de Atacama", "Región de Coquimbo", "Región de Valparaíso", "Región Metropolitana", "Región de O'Higgins", "Región del Maule", 
