@@ -1,5 +1,5 @@
 "Este codigo hace el traspaso de las bases de datos a formato .Rds"
-
+rm(list=ls())
 pacman::p_load(tidyverse,data.table,haven)
 "Debemos fijar el directorio de donde estarán las bases"
 
@@ -9,7 +9,7 @@ salida <- "D:\\OneDrive - Ministerio de Educación\\2023 - UID\\101 Reportes\\Re
 files <- list.files(bases)
 files
 files <- files[grep("\\.csv$", files)]
-
+files
 for (archivo in files){
   nombre <- paste0(sub("\\.csv$", "", archivo),".rds")
   df <- fread(paste0(bases,"/",archivo),header=TRUE,encoding = "UTF-8",col.names = tolower)
