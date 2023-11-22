@@ -617,7 +617,7 @@ TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
       #Sys.setlocale("LC_ALL","Spanish")
       Sys.setlocale("LC_ALL", "ES_ES.UTF-8")
       rmarkdown::render("RMKD Informe Escuela.Rmd", 
-                        params = list("rbd" = ee, "nom_rbd" = nom_rbd, "nom_com_rbd" = nom_com_rbd, "desvinc" = desvinc, "desvinc2" = desvinc2, "desvinc3" = desvinc3, "asis_crit" = asis_crit, "url_sin_fin_g" = url_sin_fin_g, "url_cur_desv_g" = url_cur_desv_g, "url_cur_desv_g_2" = url_cur_desv_g_2,"url_asis_crit_g" = url_asis_crit_g, "url_asis_crit_tort_g" = url_asis_crit_tort_g,
+                        params = list("mes"=mes,"mes_data"=mes_data,"rbd" = ee, "nom_rbd" = nom_rbd, "nom_com_rbd" = nom_com_rbd, "desvinc" = desvinc, "desvinc2" = desvinc2, "desvinc3" = desvinc3, "asis_crit" = asis_crit, "url_sin_fin_g" = url_sin_fin_g, "url_cur_desv_g" = url_cur_desv_g, "url_cur_desv_g_2" = url_cur_desv_g_2,"url_asis_crit_g" = url_asis_crit_g, "url_asis_crit_tort_g" = url_asis_crit_tort_g,
                                       "n_mat2022" = n_mat2022, "n_desvinc" = n_desvinc, "n_desvinc2" = n_desvinc2, "n_desvinc3" = n_desvinc3, "n_mat2023" = n_mat2023, "n_inasis2023" = n_inasis2023, "textos_variables_desvinculados" = textos_variables_desvinculados, "textos_variables_retirados" = textos_variables_retirados, "textos_variables_asistencia" = textos_variables_asistencia, "textos_variables_doble_desvinculados" = textos_variables_doble_desvinculados, "pass" = pass),
                         output_file = paste0("Outputs/Escuelas_0_prueba/", ee, ".pdf")) # Se modifica el Escuelas 0 para editar la carpeta en al que se guardan
       print(paste0("Listo ", i ," de ", nn, " establecimientos. (RBD: ", ee, ")"))

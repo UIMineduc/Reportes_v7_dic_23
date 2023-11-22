@@ -103,6 +103,7 @@ margin_left: 1.5in
 margin_right: 1.5in
 params:
   mes: null
+  mes_data: null
   desvinc: null
   desvinc2: null
   desvinc3: null
@@ -139,30 +140,6 @@ opts_chunk$set(  fig.align='center',
                  echo=TRUE,
                  warning=FALSE,
                  fig.pos='H')
-
-# library(pacman)
-# 
-# p_load(tidyverse, rio, dplyr, ggplot2, stringr, tidyr, kableExtra, 
-#        texreg, Publish, broom, ggpubr, estimatr, texreg,
-#        AER, lfe, SteinIV, sandwich, ggdag, dagitty, modelsummary,
-#        rddensity,lpdensity, rdrobust, lubridate, labelled, Hmisc, pivottabler, knitr, data.table, plotly, tictoc, htmlwidgets, webshot, pander)
-
-
-##### Actualizacion Alonso: Ya se cargaron todos los paquetes en el scrip
-# library(pacman)
-# 
-# p_load(tidyverse, rio, dplyr, ggplot2, stringr, tidyr, kableExtra, 
-#        texreg, Publish, broom, ggpubr, lubridate, labelled, Hmisc, pivottabler, knitr, data.table, htmlwidgets, webshot, htmlwidgets, webshot, pander, tinytex, here)
-
-
-# 
-#
-#install.packages("kableExtra")
-#library(kableExtra)
-
-#Sys.setlocale("LC_ALL","Spanish")
-
-
 ```
 
 <!-- \sloppy -->
@@ -176,7 +153,7 @@ opts_chunk$set(  fig.align='center',
 \begin{center}
 \vspace*{10mm}
 \vspace{70mm}
-\textbf{\textcolor{blanco_gob}{\Large{3° Reporte 2023}}}\\
+\textbf{\textcolor{blanco_gob}{\Large{4° Reporte 2023}}}\\
 \vspace{12mm}
 \textbf{\textcolor{blanco_gob}{\huge{Seguimiento de estudiantes con trayectoria educativa interrumpida o irregular}}}\\
 \vspace{12mm}
@@ -197,21 +174,21 @@ opts_chunk$set(  fig.align='center',
 \textcolor{celeste_gob}{\vspace{-15mm}\section{Estimadas Directoras y Directores:\\}}
 \vspace{5mm}
 ```{=tex}
-\textcolor{azul_gob}{\normalsize{Junto con saludarlos(as), desde el Centro de Estudios del Ministerio de Educación ponemos a su disposición el tercer reporte del año 2023 para el seguimiento de estudiantes con trayectorias educativas interrumpidas o irregulares.\\
+\textcolor{azul_gob}{\normalsize{Junto con saludarlos(as), desde el Centro de Estudios del Ministerio de Educación ponemos a su disposición el cuarto reporte del año 2023 para el seguimiento de estudiantes con trayectorias educativas interrumpidas o irregulares.
 
-Esperamos que este insumo sea de utilidad para el diseño e implementación de estrategias que respondan a la necesidad de revincular a las y los estudiantes que se encuentran fuera del sistema educacional y a mejorar la asistencia promedio en su establecimiento educacional. Estos dos desafíos, mejorar los niveles de asistencia a clases y la revinculación educativa son nuestra prioridad.\\
- 
-Para reforzar y apoyar la labor de las comunidades educativas, el Ministerio de Educación ha implementado el Plan de Reactivación Educativa, que tiene dentro de sus componentes la estrategia territorial de revinculación y asistencia, que busca promover la permanencia escolar de niños, niñas y adolescentes con trayectorias educativas interrumpidas o inasistencia grave.\\
+Sabemos que este insumo les será de gran utilidad. Así lo hemos podido identificar con distintas encuestas que reflejan que, a partir de dicha información, ustedes están adoptando estrategias específicas para la mejora de la asistencia y la revinculación de estudiantes que se encuentran fuera del sistema educacional, lo cual nos alegra enormemente. Justamente, estos dos desafíos—mejorar los niveles de asistencia a clases y la revinculación educativa— son unas de las principales prioridades del ministerio, los cuales no podemos sino abordarlos en conjunto.
 
-Los datos oficiales del Centro de Estudios del Mineduc nos señalan que aún nos queda mucho por mejorar. Así, la tarea de traer a las y los estudiantes al aula es un gran desafío que tenemos por delante donde queremos volver a los niveles previos a la pandemia y mejorarlos, así como también lograr que los establecimientos sean espacios seguros y de bienestar para las y los estudiantes del país. Para esto es fundamental que los jardines, escuelas y liceos cuenten con las condiciones propicias para promover los aprendizajes.\\
+En esa línea, para reforzar y apoyar la labor de las comunidades educativas, el Ministerio de Educación ha implementado el Plan de Reactivación Educativa, que tiene dentro de sus componentes la estrategia territorial de revinculación y asistencia, que busca promover la permanencia escolar de niños, niñas y adolescentes con trayectorias educativas interrumpidas o inasistencia grave. De esta forma, con la contratación de más de 1.100 personas en los territorios —y en coordinación con las propias comunidades educativas—, hemos podido revincular a miles de estudiantes.
 
-También queremos reconocer y promover las medidas que han adoptado las comunidades educativas en torno a los reportes, por ejemplo, compartir la información con los equipos de gestión, implementar sistemas de monitoreo en las escuelas para abordar los casos más críticos y los esfuerzos adicionales para contactar a los estudiantes que aparecen en los reportes y a sus familias, entre otras acciones. Queremos invitarles a seguir trabajando en esto.\\
+Por su parte, los datos oficiales del Centro de Estudios del Mineduc nos señalan que aún nos queda mucho por mejorar. Así, la tarea de traer a las y los estudiantes al aula es un gran desafío que tenemos por delante para recuperar los niveles previos a la pandemia y mejorarlos, así como también lograr que los establecimientos sean espacios seguros y de bienestar para las y los estudiantes del país.
 
-Estamos convencidos que las evidencias y las políticas públicas deben llegar directamente a las comunidades educativas, por lo cual desde el Mineduc seguiremos enviando este y otros reportes, con el fin de apoyar la labor diaria a la que se enfrentan en su diversidad de contextos territoriales.\\
+También queremos reconocer y promover las medidas que han adoptado las comunidades educativas en torno a los reportes, como son, por ejemplo, compartir la información con los equipos de gestión, implementar sistemas de monitoreo en las escuelas para abordar los casos más críticos y los esfuerzos adicionales para contactar a los estudiantes que aparecen en los reportes y a sus familias, entre otras acciones. Queremos invitarles a seguir trabajando en esto.
 
-La estructura del presente informe comienza con la descripción de su contenido, un resumen de la información y el listado de estudiantes sin matrícula o retirados en 2023, además de un resumen y listado de estudiantes con baja asistencia durante el mismo periodo. Para su elaboración, se ha utilizado la información actualizada al 31 de agosto del presente año.\\
+En definitiva, estamos convencidos que las evidencias y las políticas públicas deben llegar directamente a las comunidades educativas, por lo cual desde el Mineduc seguiremos enviando este y otros reportes, con el fin de apoyar la labor diaria a la que se enfrentan en su diversidad de contextos territoriales. 
 
-Les invito a revisar la información que ponemos a su disposición, y a analizar estos resultados con sus equipos y comunidades, para que definan en conjunto estrategias locales que permitan abordar la situación de aquellos niños, niñas, adolescentes y personas jóvenes y adultas, que presentan asistencia irregular o se encuentran fuera del centro educativo, con el fin de garantizar condiciones para que todas y todos tengan las mismas oportunidades de aprendizaje.\\
+La estructura del presente informe comienza con la descripción de su contenido, un resumen de la información y el listado de estudiantes sin matrícula o retirados en 2023, además de un resumen y listado de estudiantes con baja asistencia durante el mismo periodo. Para su elaboración, se ha utilizado la información actualizada al 31 de `r params$mes_data` del presente año.
+
+Les invito a revisar la información que ponemos a su disposición, y a analizar estos resultados con sus equipos y comunidades, para que definan en conjunto estrategias locales que permitan abordar la situación de aquellos niños, niñas, adolescentes y personas jóvenes y adultas, que presentan asistencia irregular o se encuentran fuera del centro educativo, con el fin de garantizar condiciones para que todas y todos ejerzan su derecho al aprendizaje.\\
 
 Les saluda afectuosamente,\\
 
@@ -245,7 +222,7 @@ Ministro de Educación.
 
 \vspace{3mm}
 
-\textcolor{azul_gob}{\normalsize{\\La información disponible en este documento\footnote{\textcolor{azul_gob}{La información presentada en este reporte es extraída desde el Sistema de Información General de Estudiantes (SIGE) al \textbf{31 de agosto 2023, por lo que puede tener variaciones respecto a datos más actualizados con los que cuente el establecimiento}. Se debe tener en cuenta estas posibles diferencias a la hora del análisis de los datos por parte de la comunidad educativa.}} puede considerar a la matrícula de los niveles de educación parvularia, educación especial y educación regular de niños, niñas y jóvenes, según los niveles que imparta el establecimiento. La información de la modalidad de "Educación de personas jóvenes y adultos" (EPJA) se dispondrá en un reporte distinto para los establecimientos que cuenten con esa modalidad.\\}}
+\textcolor{azul_gob}{\normalsize{\\La información disponible en este documento\footnote{\textcolor{azul_gob}{La información presentada en este reporte es extraída desde el Sistema de Información General de Estudiantes (SIGE) al \textbf{31 de octubre 2023, por lo que puede tener variaciones respecto a datos más actualizados con los que cuente el establecimiento}. Se debe tener en cuenta estas posibles diferencias a la hora del análisis de los datos por parte de la comunidad educativa.}} puede considerar a la matrícula de los niveles de educación parvularia, educación especial y educación regular de niños, niñas y jóvenes, según los niveles que imparta el establecimiento. La información de la modalidad de "Educación de personas jóvenes y adultos" (EPJA) se dispondrá en un reporte distinto para los establecimientos que cuenten con esa modalidad.\\}}
 
 \vspace{-1mm}
 ```{=tex}
@@ -264,11 +241,11 @@ Ministro de Educación.
 
 \textcolor{celeste_gob}{\large{\textbf{1. Estudiantes sin matrícula vigente:\\}}}
 
-\textcolor{azul_gob}{\normalsize{En esta sección se presenta información agrupada a nivel de establecimiento y grado de estudiantes que no figuran matriculados \textbf{hasta el día 31 de agosto 2023} (no incluye a quienes egresaron de 4° medio del año anterior). Además, se entregan los listados de estudiantes en esta situación según la información actualizada con la que cuenta el Ministerio de Educación. Este conjunto de estudiantes se separa en tres grupos:\\}}
+\textcolor{azul_gob}{\normalsize{En esta sección se presenta información agrupada a nivel de establecimiento y grado de estudiantes que no figuran matriculados \textbf{hasta el día 31 de octubre 2023} (no incluye a quienes egresaron de 4° medio del año anterior). Además, se entregan los listados de estudiantes en esta situación según la información actualizada con la que cuenta el Ministerio de Educación. Este conjunto de estudiantes se separa en tres grupos:\\}}
 
 
 \textcolor{azul_gob}{\textbf{\normalsize{1.1 Estudiantes 2023 retirados dentro del año y que están sin matrícula vigente.}}\\}
-\textcolor{azul_gob}{\normalsize{\\Este grupo representa a estudiantes que, habiendo estado matriculados en el establecimiento dentro del \textbf{año 2023}, se encuentran actualmente en situación de "Retirado" y no están matriculados en ningún otro establecimiento al 31 de agosto de 2023.}}
+\textcolor{azul_gob}{\normalsize{\\Este grupo representa a estudiantes que, habiendo estado matriculados en el establecimiento dentro del \textbf{año 2023}, se encuentran actualmente en situación de "Retirado" y no están matriculados en ningún otro establecimiento al 31 de octubre de 2023.}}
 
 \vspace{0mm}
 
@@ -321,7 +298,7 @@ kbl1 %>%  kable_minimal(c("striped")) %>% kable_styling(font_size = 6, latex_opt
 \vspace{4mm}
 \textcolor{celeste_gob}{\large{\textbf{2. Estudiantes con baja asistencia 2023.\\}}}
 
-\textcolor{azul_gob}{\normalsize{En esta sección se presenta un resumen de estudiantes que \textbf{hasta el 31 de agosto muestran una asistencia acumulada bajo 85\%}. Ello se considera inasistencia grave, ya que podría estar anticipando la interrupción del proceso educativo de parte de los y las estudiantes.\\
+\textcolor{azul_gob}{\normalsize{En esta sección se presenta un resumen de estudiantes que \textbf{hasta el 31 de octubre muestran una asistencia acumulada bajo 85\%}. Ello se considera inasistencia grave, ya que podría estar anticipando la interrupción del proceso educativo de parte de los y las estudiantes.\\
 \\
 Los listados están ordenados en los siguientes dos tramos: entre 0\% y 49\% de asistencia (inasistencia crítica) y 50\% y 84\% de asistencia (inasistencia grave).}} 
 
@@ -351,7 +328,7 @@ kbl1 %>%  kable_minimal(c("striped")) %>% kable_styling(font_size = 6, latex_opt
 
 \vspace{-2mm}
 <!-- \begin{flushleft}\textcolor{azul_gob2}{\large{\textbf{Resumen del establecimiento para estudiantes 2022-2023:}}}\end{flushleft} -->
-\textcolor{azul_gob}{\normalsize{\\Resumen de estudiantes del año 2022 o 2023 que no figuran matriculados en el sistema educativo el '\textbf{día 31 de agosto 2023} (no incluye a quienes egresaron de 4° medio del año anterior).}}
+\textcolor{azul_gob}{\normalsize{\\Resumen de estudiantes del año 2022 o 2023 que no figuran matriculados en el sistema educativo el '\textbf{día 31 de octubre 2023} (no incluye a quienes egresaron de 4° medio del año anterior).}}
 \begin{flushleft}
 
 \begin{tcbitemize}[raster columns=3,raster equal height, colframe=azul_gob2, colback=white, coltitle=white, toprule=0.5mm]
@@ -427,7 +404,7 @@ kbl1 %>%  kable_minimal(c("striped")) %>% kable_styling(font_size = 6, latex_opt
 
 <!--------- DETALLE RETIRADOS ------------->
 
-\textcolor{azul_gob}{\normalsize{\textbf{\textcolor{rojo_gob}{1.1 Estudiantes 2023 retirados dentro del año y que están sin matrícula vigente:}} \\ \\ \small{Resumen de estudiantes que, habiendo estado matriculados en el establecimiento al inicio del 2023, fueron retirados en el transcurso del año y no han estado matriculados en ningún otro establecimiento al \textbf{31 de agosto de 2023}.}}}
+\textcolor{azul_gob}{\normalsize{\textbf{\textcolor{rojo_gob}{1.1 Estudiantes 2023 retirados dentro del año y que están sin matrícula vigente:}} \\ \\ \small{Resumen de estudiantes que, habiendo estado matriculados en el establecimiento al inicio del 2023, fueron retirados en el transcurso del año y no han estado matriculados en ningún otro establecimiento al \textbf{31 de octubre de 2023}.}}}
 
 
 \vspace{5mm}
@@ -438,7 +415,7 @@ desvinc2 <- params$desvinc2
 # if(nrow(desvinc2) > 0 ) {
 
 pander("\\begin{flushleft}
-       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 1.1:} Cantidad de estudiantes 2023 retirados dentro del año y que no tienen matrícula vigente en ningún otro establecimiento al 31 de agosto de 2023, según su último grado en que estuvo matriculado:}}}
+       \\textit{\\textcolor{azul_gob}{\\footnotesize{\\textbf{Gráfico 1.1:} Cantidad de estudiantes 2023 retirados dentro del año y que no tienen matrícula vigente en ningún otro establecimiento al 31 de octubre de 2023, según su último grado en que estuvo matriculado:}}}
        \\end{flushleft}")
 # }  
 
@@ -473,7 +450,7 @@ knitr::include_graphics(paste0(getwd(),"/", params$url_cur_desv_g_2))
 
 \newpage
 
-\textcolor{azul_gob}{\normalsize{\textbf{\textcolor{rojo_gob}{1.2 Estudiantes 2022 que no se han matriculado en todo el 2023:}} \\ \\ \small{Resumen de estudiantes que, estando matriculados el año 2022 en el establecimiento, no han estado matriculados en ningún otro establecimiento en todo el 2023, considerando hasta el 31 de agosto 2023 (no incluye a quienes egresaron de 4° medio el año anterior).}}}
+\textcolor{azul_gob}{\normalsize{\textbf{\textcolor{rojo_gob}{1.2 Estudiantes 2022 que no se han matriculado en todo el 2023:}} \\ \\ \small{Resumen de estudiantes que, estando matriculados el año 2022 en el establecimiento, no han estado matriculados en ningún otro establecimiento en todo el 2023, considerando hasta el 31 de octubre 2023 (no incluye a quienes egresaron de 4° medio el año anterior).}}}
 
 <!-- \vspace{2mm} -->
 
@@ -588,7 +565,7 @@ if(nrow(desvinc2) > 0 ) {
  
  colnames(desvinc2) <- c("Grado en 2023", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Sexo", "Edad 2023", "Fecha de retiro", "Inscrita/o para examen de validación 2023")
 
-kbl1 <- kable(desvinc2, "latex", booktabs = T, longtable = T, align = c("l", 'l', 'l', 'l', 'l', 'c', 'c', 'c', 'c'), caption = "\\begin{flushleft}{\\textcolor{azul_gob}{\\textbf{Tabla 1.1:} Listado de estudiantes 2023 retirados dentro del año y que están sin matrícula vigente en ningún otro establecimiento al 31 de agosto de 2023.}}\\end{flushleft}", linesep = "")
+kbl1 <- kable(desvinc2, "latex", booktabs = T, longtable = T, align = c("l", 'l', 'l', 'l', 'l', 'c', 'c', 'c', 'c'), caption = "\\begin{flushleft}{\\textcolor{azul_gob}{\\textbf{Tabla 1.1:} Listado de estudiantes 2023 retirados dentro del año y que están sin matrícula vigente en ningún otro establecimiento al 31 de octubre de 2023.}}\\end{flushleft}", linesep = "")
 
 kbl1 %>%  kable_minimal(c("striped", "hover")) %>% kable_styling(font_size = 5.5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>% column_spec(column = 1:9, color = "#004677") %>% column_spec(column = c(3), width = "16em") %>% column_spec(column = c(6, 7), width = "7em") %>% column_spec(column = c(4, 5), width = "13em") %>% column_spec(column = c(2), width = "8em") %>% column_spec(column = c(1), width = "11em", bold = T, color = "#0f69b4") %>% column_spec(column = c(8), width = "12em") %>% column_spec(column = c(9), width = "12em") %>%  row_spec(0, bold = T, color = "#0f69b4", font_size = 5.8) %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>% gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>% 
   gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .)
@@ -644,7 +621,7 @@ desvinc3 <- desvinc3 %>% select("nom_grado", "run_alu2", "nom_alu", "app_alu", "
 
 colnames(desvinc3) <- c("Grado en 2021", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Sexo", "Edad 2021", "Situación final 2021", "Validó estudios en 2021", "Validó estudios en 2022", "Inscrita/o para examen de validación 2023")
 
-kbl1 <- kable(desvinc3, "latex", booktabs = T, longtable = T, align = c("l", 'l', 'l', 'l', 'l', 'c', 'c', 'c', 'c', 'c', 'c'), caption = "\\begin{flushleft}{\\textcolor{azul_gob}{\\textbf{Tabla 1.3:} Listado de estudiantes 2021 que no se han matriculado ni en 2022 ni 2023 en ningún otro establecimiento al 31 de agosto de 2023.}}\\end{flushleft}", linesep = "")
+kbl1 <- kable(desvinc3, "latex", booktabs = T, longtable = T, align = c("l", 'l', 'l', 'l', 'l', 'c', 'c', 'c', 'c', 'c', 'c'), caption = "\\begin{flushleft}{\\textcolor{azul_gob}{\\textbf{Tabla 1.3:} Listado de estudiantes 2021 que no se han matriculado ni en 2022 ni 2023 en ningún otro establecimiento al 31 de octubre de 2023.}}\\end{flushleft}", linesep = "")
 
 kbl1 %>%  kable_minimal(c("striped", "hover")) %>%
   kable_styling(font_size = 5.5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>% column_spec(column = 1:11, color = "#004677") %>%
@@ -789,31 +766,38 @@ asis_crit <- asis_crit %>% filter(asistencia_categorias_acumulada == 1)
 if(nrow(asis_crit) > 0 ) {
   # asis_crit <- asis_crit %>% select("cod_curso", "run_alu2", "nom_alu", "app_alu", "apm_alu","porcentage_asistencia_marzo","porcentage_asistencia_abril","porcentage_asistencia_mayo","porcentage_asistencia_junio","porcentage_asistencia_julio","porcentage_asistencia_agosto", "porcentage_asistencia_septiembre", "porcentage_asistencia_octubre", "porcentage_asistencia_noviembre","porcentage_asistencia_acumulada") #%>% slice(1:18)
   
-  asis_crit <- asis_crit %>% select("cod_curso", "run_alu2", "nom_alu", "app_alu", "apm_alu","sit_fin_22", "asistencia_2022", "porcentage_asistencia_marzo","porcentage_asistencia_abril","porcentage_asistencia_mayo","porcentage_asistencia_junio","porcentage_asistencia_julio","porcentage_asistencia_agosto","porcentage_asistencia_acumulada") #%>% slice(1:18)
+  asis_crit <- asis_crit %>%
+    select("cod_curso", "run_alu2", "nom_alu", "app_alu", "apm_alu","sit_fin_22", "asistencia_2022", "porcentage_asistencia_marzo","porcentage_asistencia_abril","porcentage_asistencia_mayo","porcentage_asistencia_junio",
+           "porcentage_asistencia_julio","porcentage_asistencia_agosto","porcentage_asistencia_septiembre", "porcentage_asistencia_octubre",
+           "porcentage_asistencia_acumulada") #%>% slice(1:18)
   
   # colnames(asis_crit) <- c("Grado", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Promedio asistencia mayo","Promedio asistencia abril","Promedio asistencia mayo","Promedio asistencia junio","Promedio asistencia julio","Promedio asistencia agosto","Promedio asistencia sept.","Promedio asistencia octubre","Promedio asistencia noviembre","Promedio asistencia acumulada 2023")
   
-  colnames(asis_crit) <- c("Grado en 2023", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Situación final 2022", "Promedio asistencia final 2022", "Promedio asistencia marzo", "Promedio asistencia abril", "Promedio asistencia mayo","Promedio asistencia junio","Promedio asistencia julio","Promedio asistencia agosto", "Promedio asistencia acumulada 2023")
+  colnames(asis_crit) <- c("Grado en 2023", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Situación final 2022",
+                           "Promedio asistencia final 2022", "Promedio asistencia marzo", "Promedio asistencia abril",
+                           "Promedio asistencia mayo","Promedio asistencia junio","Promedio asistencia julio",
+                           "Promedio asistencia agosto","Promedio asistencia sept.","Promedio asistencia octubre",
+                           "Promedio asistencia acumulada 2023")
   
   # kbl1 <- kable(asis_crit, "latex", booktabs = T, longtable = T,  align = c("l", 'l', 'l','l','l','c','c','c','c','c','c','c','c','c','c'), caption = "\\textcolor{azul_gob}{\\textbf{Tabla 2.1:} Nómina de estudiantes con asistencia entre 0\\% y 49\\% durante el 2023, que es el grupo que requiere mayor atención.}", linesep = "")
   # 
   #   kbl1 %>% kable_minimal(c("hover")) %>% kable_styling(font_size = 5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>% column_spec(column = 1:15, color = "#004677") %>% row_spec(0, bold = T, color = "#0f69b4", font_size = 6) %>% column_spec(column = 3, width = "13em") %>% column_spec(column = c(4,5), width = "8em") %>% column_spec(column = c(1), width = "7.2em", bold = T) %>% column_spec(column = c(6:14), width = "6.8em") %>% column_spec(column = c(15), bold = T, color = "#0f69b4", width = "8.2em") %>% add_header_above(c("","","","","","Detalle asistencia mensual" = 9, ""), color = "#0f69b4") %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>% gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>% 
   #   gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .)
   
-  kbl1 <- kable(asis_crit, "latex", booktabs = T, longtable = T,  align = c("l", 'l', 'l','l','l','c','c','c','c','c','c','c','c','c'), caption = "\\textcolor{azul_gob}{\\textbf{Tabla 2.1:} Listado de estudiantes con asistencia entre 0\\% y 49\\% durante el 2023, que es el grupo que requiere mayor atención.}", linesep = "")
+  kbl1 <- kable(asis_crit, "latex", booktabs = T, longtable = T,  align = c("l", 'l', 'l','l','l','c','c','c','c','c','c','c','c','c','c','c'), caption = "\\textcolor{azul_gob}{\\textbf{Tabla 2.1:} Listado de estudiantes con asistencia entre 0\\% y 49\\% durante el 2023, que es el grupo que requiere mayor atención.}", linesep = "")
    
 kbl1 %>% kable_minimal(c("hover")) %>%
   kable_styling(font_size = 5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>%
   add_header_above(c("","","","","","Situación 2022" = 2,"Asistencia 2023" = 7), color = "#0f69b4") %>%
-  column_spec(column = 1:14, color = "#004677") %>% 
+  column_spec(column = 1:16, color = "#004677") %>% 
   row_spec(0, bold = T, color = "#0f69b4", font_size = 6) %>% 
   column_spec(column = 3, width = "15em") %>%
   column_spec(column = c(4,5), width = "11em") %>%
   column_spec(column = c(1), width = "11em", bold = T, color = "#0f69b4") %>% column_spec(column = c(2), width = "9em") %>% 
   column_spec(column = c(6), width = "11em") %>% 
   column_spec(column = c(7), width = "12em") %>% 
-  column_spec(column = c(8:13), width = "7em") %>% 
-  column_spec(column = c(14), bold = T, color = "#0f69b4", width = "8.2em") %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>%
+  column_spec(column = c(8:15), width = "7em") %>% 
+  column_spec(column = c(16), bold = T, color = "#0f69b4", width = "8.2em") %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>%
   gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>% 
      gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .)
 
@@ -848,31 +832,38 @@ asis_crit <- asis_crit %>% filter(asistencia_categorias_acumulada == 2)
 if(nrow(asis_crit) > 0 ) {
   # asis_crit <- asis_crit %>% select("cod_curso", "run_alu2", "nom_alu", "app_alu", "apm_alu","porcentage_asistencia_marzo","porcentage_asistencia_abril","porcentage_asistencia_mayo","porcentage_asistencia_junio","porcentage_asistencia_julio","porcentage_asistencia_agosto", "porcentage_asistencia_septiembre", "porcentage_asistencia_octubre", "porcentage_asistencia_noviembre","porcentage_asistencia_acumulada") #%>% slice(1:18)
   
-  asis_crit <- asis_crit %>% select("cod_curso", "run_alu2", "nom_alu", "app_alu", "apm_alu","sit_fin_22", "asistencia_2022", "porcentage_asistencia_marzo", "porcentage_asistencia_abril","porcentage_asistencia_mayo","porcentage_asistencia_junio","porcentage_asistencia_julio","porcentage_asistencia_agosto", "porcentage_asistencia_acumulada") #%>% slice(1:18)
+  asis_crit <- asis_crit %>% select("cod_curso", "run_alu2", "nom_alu", "app_alu", "apm_alu","sit_fin_22", "asistencia_2022",
+                                    "porcentage_asistencia_marzo","porcentage_asistencia_abril","porcentage_asistencia_mayo",
+                                    "porcentage_asistencia_junio","porcentage_asistencia_julio","porcentage_asistencia_agosto",
+                                    "porcentage_asistencia_septiembre", "porcentage_asistencia_octubre",
+                                    "porcentage_asistencia_acumulada") #%>% slice(1:18)
   
   # colnames(asis_crit) <- c("Grado", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno", "Promedio asistencia mayo","Promedio asistencia abril","Promedio asistencia mayo","Promedio asistencia junio","Promedio asistencia julio","Promedio asistencia agosto","Promedio asistencia sept.","Promedio asistencia octubre","Promedio asistencia noviembre","Promedio asistencia acumulada 2023")
   
-  colnames(asis_crit) <- c("Grado en 2023", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno","Situación final 2022", "Promedio asistencia final 2022", "Promedio asistencia marzo","Promedio asistencia abril","Promedio asistencia mayo","Promedio asistencia junio","Promedio asistencia julio","Promedio asistencia agosto", "Promedio asistencia acumulada 2023")
+  colnames(asis_crit) <- c("Grado en 2023", "RUN", "Nombre", "Apellido Paterno", "Apellido Materno","Situación final 2022",
+                           "Promedio asistencia final 2022", "Promedio asistencia marzo","Promedio asistencia abril",
+                           "Promedio asistencia mayo","Promedio asistencia junio","Promedio asistencia julio","Promedio asistencia agosto",
+                           "Promedio asistencia sept.","Promedio asistencia octubre","Promedio asistencia acumulada 2023")
   
   # kbl1 <- kable(asis_crit, "latex", booktabs = T, longtable = T,  align = c("l", 'l', 'l','l','l','c','c','c','c','c','c','c','c','c','c'), caption = "\\textcolor{azul_gob}{\\textbf{Tabla 2.1:} Nómina de estudiantes con asistencia entre 0\\% y 49\\% durante el 2023, que es el grupo que requiere mayor atención.}", linesep = "")
   # 
   #   kbl1 %>% kable_minimal(c("hover")) %>% kable_styling(font_size = 5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>% column_spec(column = 1:15, color = "#004677") %>% row_spec(0, bold = T, color = "#0f69b4", font_size = 6) %>% column_spec(column = 3, width = "13em") %>% column_spec(column = c(4,5), width = "8em") %>% column_spec(column = c(1), width = "7.2em", bold = T) %>% column_spec(column = c(6:14), width = "6.8em") %>% column_spec(column = c(15), bold = T, color = "#0f69b4", width = "8.2em") %>% add_header_above(c("","","","","","Detalle asistencia mensual" = 9, ""), color = "#0f69b4") %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>% gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>% 
   #   gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .)
   
-  kbl1 <- kable(asis_crit, "latex", booktabs = T, longtable = T,  align = c("l", 'l', 'l','l','l','c','c','c','c','c','c','c','c','c','c'), caption = "\\textcolor{azul_gob}{\\textbf{Tabla 2.2:} Listado de estudiantes con asistencia entre 50\\% y 84\\% durante el 2023.}", linesep = "")
+  kbl1 <- kable(asis_crit, "latex", booktabs = T, longtable = T,  align = c("l", 'l', 'l','l','l','c','c','c','c','c','c','c','c','c','c','c','c'), caption = "\\textcolor{azul_gob}{\\textbf{Tabla 2.2:} Listado de estudiantes con asistencia entre 50\\% y 84\\% durante el 2023.}", linesep = "")
    
      kbl1 %>% kable_minimal(c("hover")) %>%
        kable_styling(font_size = 5, latex_options=c("scale_down", "HOLD_position", "repeat_header"), repeat_header_text = "\\textcolor{azul_gob}{\\textit{(continuación)}}", full_width = T, position = "left", html_font = "Verdana") %>%
        add_header_above(c("","","","","","Situación 2022" = 2,"Asistencia 2023" = 7), color = "#0f69b4") %>% 
-       column_spec(column = 1:14, color = "#004677") %>%
+       column_spec(column = 1:16, color = "#004677") %>%
        row_spec(0, bold = T, color = "#0f69b4", font_size = 6) %>%
        column_spec(column = 3, width = "15em") %>%
        column_spec(column = c(4,5), width = "11em") %>%
        column_spec(column = c(1), width = "11em", bold = T, color = "#0f69b4") %>% column_spec(column = c(2), width = "9em") %>% 
        column_spec(column = c(6), width = "11em") %>%
        column_spec(column = c(7), width = "11em") %>%
-       column_spec(column = c(8:13), width = "7em") %>% 
-       column_spec(column = c(14), bold = T, color = "#0f69b4", width = "8.2em") %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>%
+       column_spec(column = c(8:15), width = "7em") %>% 
+       column_spec(column = c(16), bold = T, color = "#0f69b4", width = "8.2em") %>% collapse_rows(columns = 1, valign = "middle", latex_hline = "major", longtable_clean_cut = T) %>%
        gsub("\\\\\\\\($|\n)", "\\\\\\\\\\\\nopagebreak\\1", .) %>% 
      gsub("(\\\\cmidrule[{][^}]*[}])", "\\1\\\\pagebreak[0]", .)
 
