@@ -11,10 +11,6 @@
 Sys.setlocale("LC_ALL","en_US.UTF-8")
 library(pacman)
 
-# Original
-# p_load(tidyverse, rio, dplyr, ggplot2, stringr, tidyr, kableExtra, 
-#        texreg, Publish, broom, ggpubr, lubridate, labelled, Hmisc, pivottabler, knitr, data.table, plotly, 
-#        tictoc, htmlwidgets, webshot, tinytex)
 
 #Opcional - nuevo- se excluyen ggpubr y Hmisc que tienen problemas en amazon-linux
 p_load(tidyverse, rio, dplyr, ggplot2, stringr, tidyr, kableExtra, 
