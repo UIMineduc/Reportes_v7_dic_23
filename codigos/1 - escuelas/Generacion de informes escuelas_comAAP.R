@@ -49,16 +49,14 @@ mes_data <- "octubre"
 #Carga de BD de datos
 #Se lee datos de estudiantes desvinculados y de asistencia
 
-bd <- fread("Inputs/", encoding="UTF-8") 
+bd <- fread("Inputs/Desvinculacion_octubre_2023_2.csv", encoding="UTF-8") 
 colnames(bd) <- tolower(colnames(bd))
 
-bd_asis <- fread("Inputs/", encoding="UTF-8")
+bd_asis <- fread("Inputs/20231120_inasistencia_grave_octubre.csv", encoding="UTF-8")
 colnames(bd_asis) <- tolower(colnames(bd_asis))
 
-
 #Desvinculados intranual
-#Parvularia
-bd_desvinc_intran <- fread("Inputs/", encoding="UTF-8")
+bd_desvinc_intran <- fread("Inputs/retirados_sin_mat_octubre_parv_val_v2.csv", encoding="UTF-8")
 colnames(bd_desvinc_intran) <- tolower(colnames(bd_desvinc_intran))
 
 #Se añaden nuevas variables
@@ -82,13 +80,8 @@ orden_grados <- c("Sala Cuna Menor", "Sala Cuna Mayor","Sala Cuna Heterogéneo",
 
 nom_grad$nom_grado <- factor(nom_grad$nom_grado, levels = orden_grados, labels = orden_grados)
 
-
-#Sys.setlocale("LC_ALL","Spanish")
-#}
-
 #Doble desivnculados (de 2021 a 2023)
 doble_desvinc <- fread("Inputs/Desvinculados_2021_2023.csv")
-
 
 #descarga de textos para tablas de variables.
 #se demora en cargar menos de 1 segundo cada base asi que no vale la pena hacer cambios acá
@@ -105,19 +98,16 @@ bd_desvinc_intran_r2 <- bd_desvinc_intran %>% select("run_alu", "rbd", "nom_alu"
 colnames(bd_desvinc_intran_r2) <- paste0(colnames(bd_desvinc_intran_r2), "_ret")
 colnames(bd_desvinc_intran_r2)
 
-
 #Unión bd_desvinc e intraanual
 bd <- full_join(bd, bd_desvinc_intran_r, by = "run_alu")
 
 table(bd$desert_glob_total_aju_octubre_2023, bd$desertor_intra, useNA = "ifany")
 
 #Se define categoría para tablas de deserción
-
 bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 1 & desertor_intra == 1, "Retirado 2023", "otro"))
 bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 0, "No desertor", categoria_desert))
 bd <- bd %>% mutate(categoria_desert = ifelse(desertor_intra == 1, "Retirado 2023", categoria_desert))
 bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 1 & is.na(desertor_intra), "Desercion incidencia", categoria_desert))
-
 
 ## Sobre la validacion de estudios
 bd <- bd %>% mutate(valid_estud = ifelse(validacion_estudios == 1 | valida_estudios == 1, "Sí", "No"))
@@ -127,7 +117,6 @@ bd <- bd %>% mutate(cert_val_22 = ifelse(cert_val_22 == 1, "Sí", "No"))
 bd <- bd %>% mutate(cert_val_22 = ifelse(is.na(cert_val_22), "No", cert_val_22))
 
 pp <- bd %>% filter(cod_depe2_2022r == 3)
-
 #**************************************************************************************************************************/
 # 2. Gestión de BBDD  ----------------------------------------------------------------
 #**************************************************************************************************************************/
@@ -145,16 +134,13 @@ bd <- bd %>% mutate(gen_alu_2022r = case_when(gen_alu_2022r == 1 ~ "M", gen_alu_
 
 bd <- bd %>% mutate(sit_fin_r_2022r = case_when(is.na(sit_fin_r_2022r) | sit_fin_r_2022r == "" ~ "Sin Registro", sit_fin_r_2022r == "P" ~ "Promovido", sit_fin_r_2022r == "R" ~ "Reprobado", sit_fin_r_2022r == "Y" ~ "Retirado"))
 
-
-
 #Se agrega la columna nombre_grado del estudiante en el año 2022
 bd <- left_join(bd, nom_grad, by = c("cod_ense_2022r" = "cod_ense", "cod_grado_2022r" = "cod_grado"))
 bd_asis <- left_join(bd_asis, nom_grad, by = c("cod_ense" = "cod_ense", "cod_grado" = "cod_grado"))
 
-
 #Ajustes en renombre de etiquetas de la base de dobles desvinculados
 doble_desvinc <- left_join(doble_desvinc, nom_grad, by = c("cod_ense" = "cod_ense", "cod_grado" = "cod_grado"))
-doble_desvinc <- doble_desvinc %>% mutate(gen_alu = case_when(gen_alu == 1 ~ "M", gen_alu == 2 ~ "F", gen_alu == 0 ~ ""))
+doble_desvinc <- doble_desvinc %>% mutate(gen_alu = case_when(gen_alu == 1 ~ "M", gen_alu == 2 ~ "F", gen_alu == 0 ~ "", TRUE ~ ""))
 doble_desvinc <- doble_desvinc %>% mutate(sit_fin_r = case_when(is.na(sit_fin_r) | sit_fin_r == "" | sit_fin_r == "Z"  ~ "Sin Registro", sit_fin_r == "P" ~ "Promovido", sit_fin_r == "R" ~ "Reprobado", sit_fin_r == "Y" ~ "Retirado"))
 doble_desvinc <- doble_desvinc %>% mutate(run_alu2 = ifelse(dgv_alu != "", paste0(run_alu, "-", dgv_alu), run_alu))
 
@@ -182,7 +168,6 @@ colnames(bd_asis)
 
 bd_asis <- bd_asis %>% mutate(tipo_asis_3 = case_when(porcentage_asistencia_acumulada >= 90 ~ 'Asistencia esperada (90% - 100% asistencia)', porcentage_asistencia_acumulada < 90 & porcentage_asistencia_acumulada >= 85 ~ 'Inasistencia reiterada (85% - 89% asistencia)', porcentage_asistencia_acumulada < 85 & porcentage_asistencia_acumulada >= 50 ~ 'Inasistencia grave (50% - 84% asistencia)', porcentage_asistencia_acumulada < 50  ~ 'Inasistencia crítica (0% - 49% asistencia)'))
 bd_asis <- bd_asis %>% mutate(tipo_asis_2 = case_when(asistencia_categorias_acumulada == 4 ~ 'Asist. esperada (90%-100% asist.)', asistencia_categorias_acumulada == 3 ~ 'Inasist. reiterada (85%-89% asist.)', asistencia_categorias_acumulada == 2  ~ 'Inasist. grave (50%-84% asist.)', asistencia_categorias_acumulada == 1  ~ 'Inasist. crítica (0%-49% asist.)', is.na(asistencia_categorias_acumulada) ~ 'Sin información'))
-
 
 bd_asis <- bd_asis %>% mutate(asistencia_2022 = ifelse(asistencia_2022 == "Sin información", NA, asistencia_2022))
 bd_asis <- bd_asis %>% mutate(asistencia_2022 = as.numeric(asistencia_2022))
@@ -250,10 +235,6 @@ m2 <- list(
   t = 50,
   pad = 3
 )
-
-
-
-
 #**************************************************************************************************************************/
 
 ## 3.2 BBDD de interés para el loop  ----------------------------------------------------------------
@@ -287,7 +268,7 @@ data_plot2_n_2_todos <- bd_asis %>% group_by(rbd, nom_grado) %>% summarise(n_tot
 
 rbds <- unique(bd_asis$rbd)
 length(rbds)
-rbds1 <- rbds
+
 
 
 ############### "" ------
@@ -328,13 +309,12 @@ i = 0
 nn = length(rbds1)
 nn
 
-# En caso de testing debe usarse
-# ee <- 1
 
 "NOTAAAAAAAA!!!!!: PARTE DE LA AUTOMATIZACION DE ESTE LOOP QUEDÓ EN TESTING, 
 AHÍ SE AÑADIERON VARIOS VECTORES PARA SACAR ASIGNACIONES DE LA MEMORIA,
 TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
-
+"Testing"
+rbds1 <- 1
 {
   
   # ee = rbds0[10]
@@ -362,12 +342,6 @@ TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
       desvinc <- desvinc %>% filter(categoria_desert == "Desercion incidencia")
       desvinc2 <- bd2[bd2$rbd_ret == ee,]
       desvinc2 <- desvinc2 %>% filter(categoria_desert == "Retirado 2023")
-      
-      
-      #Esta version es más rápida porque disminuye el tiempo de asignacion
-      # tic()
-      # desvinc2_aa <- bd2 %>% filter(rbd_ret==ee & categoria_desert=="Retirado 2023")
-      # toc()
       
       desvinc3 <- doble_desvinc[doble_desvinc$rbd == ee,]
       
@@ -428,7 +402,6 @@ TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
       ####------
       
       
-      
       asis_crit <- asis_crit %>% filter(inasistencia_grave_acumulada == TRUE)
       n_inasis2023 = nrow(asis_crit)
       # asis_crit <- asis_crit %>%
@@ -444,12 +417,13 @@ TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
                                         "porcentage_asistencia_abril", "porcentage_asistencia_mayo",
                                         "porcentage_asistencia_junio", "porcentage_asistencia_julio", "porcentage_asistencia_agosto",
                                         "porcentage_asistencia_septiembre","porcentage_asistencia_octubre",
-                                        "porcentage_asistencia_acumulada", "inasistencia_grave_acumulada", "asistencia_categorias_acumulada", "tipo_asis_2", "asistencia_2022", "sit_fin_22")
+                                        "porcentage_asistencia_acumulada", "inasistencia_grave_acumulada",
+                                        "asistencia_categorias_acumulada", "tipo_asis_2", "asistencia_2022", "sit_fin_22")
       
-      "Ordenamos por nivel y asistencia acumulada"
+      #Ordenamos por nivel y asistencia acumulada
       asis_crit <- asis_crit %>% arrange(cod_curso, porcentage_asistencia_acumulada)
       
-      "Modificamos las variables de asistencia"
+      #Modificamos las variables de asistencia
       asis_crit <- asis_crit %>% mutate(porcentage_asistencia_acumulada = ifelse(!is.na(porcentage_asistencia_acumulada), paste0(round(porcentage_asistencia_acumulada*100,0),"%"), "-"))
       asis_crit <- asis_crit %>% mutate(porcentage_asistencia_marzo = ifelse(!is.na(porcentage_asistencia_marzo), paste0(round(porcentage_asistencia_marzo*100,0),"%"), "-"))
       asis_crit <- asis_crit %>% mutate(porcentage_asistencia_abril = ifelse(!is.na(porcentage_asistencia_abril), paste0(round(porcentage_asistencia_abril*100,0),"%"), "-"))
@@ -498,9 +472,13 @@ TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
       
       p <- plot_ly(data_plot1, labels = ~sit_fin_r_2022r, values = ~round(prop,3), text = paste0(round(data_plot1$prop*100,1), "%"," <i>(", data_plot1$n,")</i>"), type = 'pie', hole = 0, textposition = 'outside', 
                    textinfo = 'label+text', marker = list(colors = ~color)) %>% 
-        layout(legend = list(font = list(family = "verdana", size = 18, color = azul), orientation = "h", x=0.1 , y=1.6), font= list(family = "verdana", size = 17, color = azul), xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-               yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE), 
-               paper_bgcolor='transparent', autosize = T
+        layout(
+          legend = list(font = list(family = "verdana", size = 18, color = azul),
+                        orientation = "h", x=0.1 , y=1.5),
+          font= list(family = "verdana", size = 17, color = azul),
+          xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+          yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+          paper_bgcolor='transparent', autosize = T
         )
       
       
@@ -526,9 +504,13 @@ TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
       
       k <- plot_ly(x=~data_plot2$nom_grado_2022r, y = ~data_plot2$n , type = "bar", marker = list(color = celeste), text = paste0("<b style='color:#007096'>", data_plot2$n), textfont = list(family = "verdana", size = 35, color = '#FFFFFF'), textposition = 'outside') %>%
         layout(font = list(family = "verdana", color = azul, size = 30), title = "",  #azul antiguo '#007096'
-               xaxis=list(title="<b>Grado 2022</b>", font = list(family = "verdana", size = 40), showlegend = FALSE,  categoryarray = fct_rev(data_plot2$nom_grado_2022r), categoryorder = "array", tickangle = -45),
-               yaxis=list(title="<b>N° estudiantes 2022 no matriculados en 2023</b>", font = list(family = "verdana", size = 24), range = list(0, max(data_plot2$n) + 5), showlegend = FALSE, showgrid = F, autotick = FALSE, dtick = 5),
-               plot_bgcolor='transparent', paper_bgcolor='transparent', autosize = F, width = 2000, height = 1200, margin = list(l=-0.1, t = -0.1, r=-0.1))
+               xaxis=list(title="<b>Grado 2022</b>", font = list(family = "verdana", size = 40),
+                          showlegend = FALSE,  categoryarray = fct_rev(data_plot2$nom_grado_2022r),
+                          categoryorder = "array", tickangle = -45),
+               yaxis=list(title="<b>N° estudiantes 2022 no matriculados en 2023</b>", font = list(family = "verdana", size = 24),
+                          range = list(0, max(data_plot2$n) + 5), showlegend = FALSE, showgrid = F, autotick = FALSE, dtick = 5),
+               plot_bgcolor='transparent', paper_bgcolor='transparent', autosize = F,
+               width = 2000, height = 1200, margin = list(l=-0.1, t = -0.1, r=-0.1))
       
       # url_cur_desv_g = paste0("/Img temp/", ee,"_cur_desv_g.png")
       # orca(k, url_cur_desv_g)
@@ -599,7 +581,9 @@ TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
       
       o <- plot_ly(data_plot5, labels = ~tipo_asis_2, values = ~round(prop,3), type = 'pie', hole = 0.5, textposition = 'outside', text = paste0(round(data_plot5$prop,3)*100,"%<br><i>(", data_plot5$n,")</i>"),
                    textinfo = 'text', sort = FALSE, marker = list(colors = ~color)) %>% 
-        layout(legend = list(font = list(family = "verdana", size = 14, color = azul), x=1.3 , y=0.5), font=list(family = "verdana", size = 16, color = azul), xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+        layout(legend = list(font = list(family = "verdana", size = 14, color = azul), x=1.3 , y=0.5),
+               font=list(family = "verdana", size = 16, color = azul),
+               xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
                yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE), 
                paper_bgcolor='transparent', autosize = TRUE, margin = list(l = -5, r = -5)
         )
@@ -616,10 +600,10 @@ TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
       #**************************************************************************************************************************/
       #Sys.setlocale("LC_ALL","Spanish")
       Sys.setlocale("LC_ALL", "ES_ES.UTF-8")
-      rmarkdown::render("RMKD Informe Escuela.Rmd", 
-                        params = list("mes"=mes,"mes_data"=mes_data,"rbd" = ee, "nom_rbd" = nom_rbd, "nom_com_rbd" = nom_com_rbd, "desvinc" = desvinc, "desvinc2" = desvinc2, "desvinc3" = desvinc3, "asis_crit" = asis_crit, "url_sin_fin_g" = url_sin_fin_g, "url_cur_desv_g" = url_cur_desv_g, "url_cur_desv_g_2" = url_cur_desv_g_2,"url_asis_crit_g" = url_asis_crit_g, "url_asis_crit_tort_g" = url_asis_crit_tort_g,
+      rmarkdown::render("codigos/1 - escuelas/RMKD Informe Escuela - copia.Rmd", 
+                        params = list("rbd" = ee, "nom_rbd" = nom_rbd, "nom_com_rbd" = nom_com_rbd, "desvinc" = desvinc, "desvinc2" = desvinc2, "desvinc3" = desvinc3, "asis_crit" = asis_crit, "url_sin_fin_g" = url_sin_fin_g, "url_cur_desv_g" = url_cur_desv_g, "url_cur_desv_g_2" = url_cur_desv_g_2,"url_asis_crit_g" = url_asis_crit_g, "url_asis_crit_tort_g" = url_asis_crit_tort_g,
                                       "n_mat2022" = n_mat2022, "n_desvinc" = n_desvinc, "n_desvinc2" = n_desvinc2, "n_desvinc3" = n_desvinc3, "n_mat2023" = n_mat2023, "n_inasis2023" = n_inasis2023, "textos_variables_desvinculados" = textos_variables_desvinculados, "textos_variables_retirados" = textos_variables_retirados, "textos_variables_asistencia" = textos_variables_asistencia, "textos_variables_doble_desvinculados" = textos_variables_doble_desvinculados, "pass" = pass),
-                        output_file = paste0("Outputs/Escuelas_0_prueba/", ee, ".pdf")) # Se modifica el Escuelas 0 para editar la carpeta en al que se guardan
+                        output_file = paste0("Outputs/Escuelas_0/", ee, ".pdf")) # Se modifica el Escuelas 0 para editar la carpeta en al que se guardan
       print(paste0("Listo ", i ," de ", nn, " establecimientos. (RBD: ", ee, ")"))
       toc()
     }) #cierre Try
