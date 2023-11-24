@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.22)  23 NOV 2023 12:44
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.22)  24 NOV 2023 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Outputs/Escuelas_0/1.tex
-(./Outputs/Escuelas_0/1.tex
+**"Outputs/Escuelas_0 (EPJA)/1-EPJA.tex"
+(./Outputs/Escuelas_0 (EPJA)/1-EPJA.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
 (c:/Users/Alonso.Arrano/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -920,7 +920,7 @@ Package: times 2020/03/25 PSNFSS-v9.3 (SPQR)
 ) (c:/Users/Alonso.Arrano/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2023/09/26 version 6.1.0 text color boxes
 (c:/Users/Alonso.Arrano/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
+Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks51
 \verbatim@line=\toks52
 \verbatim@in@stream=\read4
@@ -1056,8 +1056,8 @@ LaTeX Info: Redefining \cite on input line 694.
 LaTeX Warning: Unused global option(s):
     [Letterpaper,table].
 
-(./1.aux)
-\openout1 = `1.aux'.
+(./1-EPJA.aux)
+\openout1 = `1-EPJA.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
 LaTeX Font Info:    ... okay on input line 148.
@@ -1248,9 +1248,9 @@ LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 148.
 Package hyperref Info: Link coloring OFF on input line 148.
-(./1.out) (./1.out)
+(./1-EPJA.out) (./1-EPJA.out)
 \@outlinefile=\write5
-\openout5 = `1.out'.
+\openout5 = `1-EPJA.out'.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1296,93 +1296,93 @@ LaTeX Font Info:    Font shape `TU/Verdana(2)/b/n' will be
 LaTeX Font Info:    Font shape `TU/Verdana(2)/b/n' will be
 (Font)              scaled to size 14.4pt on input line 156.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/b/n' will be
-(Font)              scaled to size 20.74pt on input line 158.
+(Font)              scaled to size 20.74pt on input line 160.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 164.
+(Font)              scaled to size 20.74pt on input line 166.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 164.
+(Font)              scaled to size 14.4pt on input line 166.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 166.
+(Font)              scaled to size 10.0pt on input line 168.
 File: Imagenes genericas/fondo portada.png Graphic file (type bmp)
 <Imagenes genericas/fondo portada.png>
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 173--173
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 173.
+(hyperref)                removing `\\' on input line 175.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 195--195
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 197--197
 \TU/Verdana(2)/m/n/10 La estructura del presente informe comienza con la descripción de su contenido, un
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 
  []
 
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/sl' in size <10> not available
-(Font)              Font shape `TU/Verdana(2)/m/it' tried instead on input line 197.
+(Font)              Font shape `TU/Verdana(2)/m/it' tried instead on input line 199.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 197.
+(Font)              scaled to size 10.0pt on input line 199.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 197.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 197.
+(Font)              scaled to size 8.0pt on input line 199.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 199.
 (c:/Users/Alonso.Arrano/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 197.
+(Font)              scaled to size 8.00085pt on input line 199.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 197.
+(Font)              scaled to size 6.00064pt on input line 199.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 197.
+(Font)              scaled to size 5.00053pt on input line 199.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 197.
+(Font)              scaled to size 7.99915pt on input line 199.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 197.
+(Font)              scaled to size 5.99936pt on input line 199.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 197.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 197.
+(Font)              scaled to size 4.99947pt on input line 199.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 199.
 (c:/Users/Alonso.Arrano/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 197.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 199.
 (c:/Users/Alonso.Arrano/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1392,35 +1392,35 @@ File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 File: imagenes genericas/Diagrama 2023_mayo.png Graphic file (type bmp)
 <imagenes genericas/Diagrama 2023_mayo.png>
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 208.
+(Font)              scaled to size 10.00107pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 208.
+(Font)              scaled to size 7.00075pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 208.
+(Font)              scaled to size 9.99893pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 208.
+(Font)              scaled to size 6.99925pt on input line 210.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 208.
+(Font)              scaled to size 7.0pt on input line 210.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 208.
+(Font)              scaled to size 6.0pt on input line 210.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 208.
+(Font)              scaled to size 8.0pt on input line 210.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 214.
+(Font)              scaled to size 8.0pt on input line 216.
 File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
 [2]
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 224.
+(Font)              scaled to size 12.0pt on input line 226.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 224.
+(Font)              scaled to size 12.0pt on input line 226.
 File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
 [3]
 File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 345--346
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
 
  []
 
@@ -1428,30 +1428,35 @@ File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
 [5]
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 380.
+(Font)              scaled to size 9.0pt on input line 382.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 380.
+(Font)              scaled to size 9.0pt on input line 382.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 24.88pt on input line 392.
+(Font)              scaled to size 24.88pt on input line 394.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 392.
+(Font)              scaled to size 24.88pt on input line 394.
 LaTeX Font Info:    Font shape `TU/Verdana(2)/b/n' will be
-(Font)              scaled to size 38.0pt on input line 407.
+(Font)              scaled to size 38.0pt on input line 410.
 File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
  []
 
+
+Underfull \hbox (badness 1442) in paragraph at lines 442--443
+\TU/Verdana(2)/m/n/10 Resumen de estudiantes que, habiendo estado matriculados en el establecimiento al
+ []
+
 LaTeX Font Info:    Font shape `TU/Verdana(2)/b/it' will be
-(Font)              scaled to size 8.0pt on input line 442.
+(Font)              scaled to size 8.0pt on input line 447.
 File: D:/OneDrive - Ministerio de Educación/2023 - UID/101 Reportes/Reportes_v7_dic_23/Img temp/1_cur_desv_g_2.png Graphic file (type bmp)
 <D:/OneDrive - Ministerio de Educación/2023 - UID/101 Reportes/Reportes_v7_dic_23/Img temp/1_cur_desv_g_2.png>
 File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 455--456
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
 
  []
 
@@ -1463,29 +1468,29 @@ File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
 [8]
 LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 486.
+(Font)              scaled to size 5.5pt on input line 493.
 
-Overfull \hbox (2.06999pt too wide) in alignment at lines 586--586
+Overfull \hbox (2.06999pt too wide) in alignment at lines 673--673
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (2.06999pt too wide) in alignment at lines 586--586
+Overfull \hbox (2.06999pt too wide) in alignment at lines 673--673
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (2.06999pt too wide) in alignment at lines 586--586
+Overfull \hbox (2.06999pt too wide) in alignment at lines 673--673
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (2.06999pt too wide) in alignment at lines 586--586
+Overfull \hbox (2.06999pt too wide) in alignment at lines 673--673
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (2.06999pt too wide) in alignment at lines 586--586
+Overfull \hbox (2.06999pt too wide) in alignment at lines 673--673
  [] [] [] [] [] [] [] [] [] 
  []
 
@@ -1494,152 +1499,163 @@ File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 [9
 
 ]
-Overfull \hbox (8.53339pt too wide) in alignment at lines 685--685
+File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
+<Imagenes genericas/fondo pagina.png>
+[10]
+File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
+<Imagenes genericas/fondo pagina.png>
+[11]
+File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
+<Imagenes genericas/fondo pagina.png>
+[12]
+Overfull \hbox (5.35101pt too wide) in alignment at lines 984--984
  [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (8.53339pt too wide) in alignment at lines 685--685
+Overfull \hbox (5.35101pt too wide) in alignment at lines 984--984
  [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (8.53339pt too wide) in alignment at lines 685--685
+Overfull \hbox (5.35101pt too wide) in alignment at lines 984--984
  [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (8.53339pt too wide) in alignment at lines 685--685
+Overfull \hbox (5.35101pt too wide) in alignment at lines 984--984
  [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (8.53339pt too wide) in alignment at lines 685--685
+Overfull \hbox (1.45557pt too wide) in paragraph at lines 984--984
+[][]\TU/Verdana(2)/m/n/5.5 MONTENEGRO[]|  
+ []
+
+
+Overfull \hbox (5.35101pt too wide) in alignment at lines 984--984
  [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
-[10]
+[13]
+File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
+<Imagenes genericas/fondo pagina.png>
+[14]
+File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
+<Imagenes genericas/fondo pagina.png>
+[15]
 File: D:/OneDrive - Ministerio de Educación/2023 - UID/101 Reportes/Reportes_v7_dic_23/Img temp/1_asis_crit_tort_g.png Graphic file (type bmp)
 <D:/OneDrive - Ministerio de Educación/2023 - UID/101 Reportes/Reportes_v7_dic_23/Img temp/1_asis_crit_tort_g.png>
 File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
-[11
+[16
 
 ]
 File: D:/OneDrive - Ministerio de Educación/2023 - UID/101 Reportes/Reportes_v7_dic_23/Img temp/1_asis_crit_g.png Graphic file (type bmp)
 <D:/OneDrive - Ministerio de Educación/2023 - UID/101 Reportes/Reportes_v7_dic_23/Img temp/1_asis_crit_g.png>
 File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
 <Imagenes genericas/fondo pagina.png>
-[12]
-LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 747.
-
-Overfull \hbox (3.72168pt too wide) in paragraph at lines 795--795
- [][]\TU/Verdana(2)/b/n/6 Septiembre[]| 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 795--795
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (3.72168pt too wide) in paragraph at lines 795--795
- [][]\TU/Verdana(2)/b/n/6 Septiembre[]| 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 795--795
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 795--795
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 795--795
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 795--795
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
-<Imagenes genericas/fondo pagina.png>
-[13
-
-]
-Overfull \hbox (3.72168pt too wide) in paragraph at lines 1107--1107
- [][]\TU/Verdana(2)/b/n/6 Septiembre[]| 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 1107--1107
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (3.72168pt too wide) in paragraph at lines 1107--1107
- [][]\TU/Verdana(2)/b/n/6 Septiembre[]| 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 1107--1107
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 1107--1107
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 1107--1107
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (31.06998pt too wide) in alignment at lines 1107--1107
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
- []
-
-File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
-<Imagenes genericas/fondo pagina.png>
-[14
-
-
-]
-File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
-<Imagenes genericas/fondo pagina.png>
-[15]
-File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
-<Imagenes genericas/fondo pagina.png>
-[16]
-File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
-<Imagenes genericas/fondo pagina.png>
 [17]
-No file 1.bbl.
-(./1.aux)
+LaTeX Font Info:    Font shape `TU/Verdana(2)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1047.
+
+Overfull \hbox (3.72168pt too wide) in paragraph at lines 1091--1091
+ [][]\TU/Verdana(2)/b/n/6 Septiembre[]| 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1091--1091
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (3.72168pt too wide) in paragraph at lines 1091--1091
+ [][]\TU/Verdana(2)/b/n/6 Septiembre[]| 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1091--1091
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1091--1091
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1091--1091
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1091--1091
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
+<Imagenes genericas/fondo pagina.png>
+[18
+
+]
+Overfull \hbox (3.72168pt too wide) in paragraph at lines 1181--1181
+ [][]\TU/Verdana(2)/b/n/6 Septiembre[]| 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1181--1181
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (3.72168pt too wide) in paragraph at lines 1181--1181
+ [][]\TU/Verdana(2)/b/n/6 Septiembre[]| 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1181--1181
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1181--1181
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1181--1181
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (31.06998pt too wide) in alignment at lines 1181--1181
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+File: Imagenes genericas/fondo pagina.png Graphic file (type bmp)
+<Imagenes genericas/fondo pagina.png>
+[19
+
+
+]
+No file 1-EPJA.bbl.
+(./1-EPJA.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
-Package rerunfilecheck Info: File `1.out' has not changed.
+Package rerunfilecheck Info: File `1-EPJA.out' has not changed.
 (rerunfilecheck)             Checksum: DFB8BB15A4FE10DBF6867953E7787A37;881.
  ) 
 Here is how much of TeX's memory you used:
- 40485 strings out of 476914
- 858669 string characters out of 5803744
- 2341189 words of memory out of 5000000
- 61711 multiletter control sequences out of 15000+600000
+ 40367 strings out of 476914
+ 857563 string characters out of 5803744
+ 2130189 words of memory out of 5000000
+ 61593 multiletter control sequences out of 15000+600000
  566701 words of font info for 131 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 103i,15n,132p,1554b,1175s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,15n,132p,1568b,1174s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 1.pdf (18 pages).
+Output written on 1-EPJA.pdf (20 pages).
