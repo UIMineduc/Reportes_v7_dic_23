@@ -199,7 +199,7 @@ opts_chunk$set(  fig.align='center',
 \textcolor{celeste_gob}{\vspace{-20mm}\section{Estimadas Directoras y Directores:\\}}
 \vspace{-8mm}
 ```{=tex}
-\textcolor{azul_gob}{\normalsize{Junto con saludarlos(as), desde el Centro de Estudios del Ministerio de Educación ponemos a su disposición el tercer reporte del año 2023 para el seguimiento de estudiantes con trayectorias educativas interrumpidas o irregulares. \\
+\textcolor{azul_gob}{\normalsize{Junto con saludarlos(as), desde el Centro de Estudios del Ministerio de Educación ponemos a su disposición el cuarto reporte del año 2023 para el seguimiento de estudiantes con trayectorias educativas interrumpidas o irregulares. \\
 \\
 Sabemos que este insumo les será de gran utilidad. Así lo hemos podido identificar con distintas encuestas que reflejan que, a partir de dicha información, ustedes están adoptando estrategias específicas para la mejora de la asistencia y la revinculación de estudiantes que se encuentran fuera del sistema educacional, lo cual nos alegra enormemente. Justamente, estos dos desafíos—mejorar los niveles de asistencia a clases y la revinculación educativa— son unas de las principales prioridades del ministerio, los cuales no podemos sino abordarlos en conjunto.\\
 \\
