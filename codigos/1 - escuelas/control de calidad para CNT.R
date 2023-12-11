@@ -1,8 +1,25 @@
 #chequeo de calidad de los reportes
 
+# Escuelas ----
+## REVISION DE FALTANTES ----
+df <- data.frame(rbd = rbds)
+archivos <- list.files("D:\\Downloads\\WorkDocsDownloads\\escuelas_nov_2023")
+pdfs <- data.frame(nombre_pdf = archivos)
+pdfs <- pdfs %>% filter(!grepl(".tex", archivos, fixed = TRUE))
+pdfs <- pdfs %>% mutate(rbd = gsub(".pdf", "", nombre_pdf)) %>% mutate(rbd = as.numeric(rbd))
+head(pdfs)
+nrow(pdfs)
+
+df <- left_join(df, pdfs, by = "rbd")
+pendientes <- df %>% filter(is.na(nombre_pdf))
+pendientes <- unique(pendientes$rbd)
+pendientes
+
+# Sostenedores ----
+
 #REVISION DE FALTANTES
 df <- data.frame(rbd = ruts_sost )
-archivos <- list.files("F:\\MINEDUC\\CNT\\Reportes\\2023\\3° Reporte Trayectorias (Septiembre)\\Sostenedores\\Sostenedores (PDF)")
+archivos <- list.files("D:\\Downloads\\WorkDocsDownloads\\sostenedores_nov_2023")
 pdfs <- data.frame(nombre_pdf = archivos)
 head(pdfs)
 pdfs <- pdfs%>% filter(!grepl(".tex", nombre_pdf, fixed = TRUE))
@@ -22,16 +39,17 @@ errores
 length(errores)
 
 #### EXCEL 
-#chequeo de calidad de los reportes
 
 #REVISION DE FALTANTES
 df <- data.frame(rbd = ruts_sost )
 nrow(df)
-archivos <- list.files("F:\\MINEDUC\\CNT\\Reportes\\2023\\3° Reporte Trayectorias (Septiembre)\\Sostenedores\\Sostenedores (Excel)")
+archivos <- list.files("D:\\Downloads\\WorkDocsDownloads\\sostenedores_nov_2023")
 pdfs <- data.frame(nombre_pdf = archivos)
 head(pdfs)
 colnames(pdfs)
-pdfs <- pdfs %>% filter(nombre_pdf != "NA.xlsx") %>% mutate(rbd = gsub(".xlsx", "", nombre_pdf)) %>% mutate(rbd = as.numeric(rbd))
+pdfs <- pdfs %>% filter(nombre_pdf != "NA.xlsx") %>%
+  mutate(rbd = gsub(".xlsx", "", nombre_pdf)) %>%
+  mutate(rbd = as.numeric(rbd))
 #(pdfs)
 head(pdfs)
 nrow(pdfs)
