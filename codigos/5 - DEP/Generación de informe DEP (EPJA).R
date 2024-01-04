@@ -24,8 +24,8 @@ options(encoding = "UTF-8")
 
 # install.packages('reticulate')
 # reticulate::install_miniconda()
-reticulate::conda_install('r-reticulate', 'python-kaleido')
-reticulate::conda_install('r-reticulate', 'plotly', channel = 'plotly')
+# reticulate::conda_install('r-reticulate', 'python-kaleido')
+# reticulate::conda_install('r-reticulate', 'plotly', channel = 'plotly')
 reticulate::use_miniconda('r-reticulate')
 
 #**************************************************************************************************************************/
@@ -34,12 +34,12 @@ reticulate::use_miniconda('r-reticulate')
 #SE COMENTA TODO  LO QUE TOMA TIEMPO DE PROCESAR RESPECTO A AL BASE DE DATOS, YA QUE ESTÁ LISTO. EN CASO DE VOLVER A PROCESAR SE PUEDE DESCOMENTAR
 #
 #Se lee datos de estudiantes desvinculados
- bd <- fread("Inputs/Desvinculacion_agosto_2023_2.csv", encoding="UTF-8")
+ bd <- fread("Inputs/Desvinculacion_octubre_2023_2.csv", encoding="UTF-8")
  colnames(bd) <- tolower(colnames(bd))
  colnames(bd)
  head(bd)
  
- bd_asis <- fread("Inputs/202309_inasistencia_grave_agosto.csv", encoding="UTF-8")                  #fread("Inputs/20230624_inasistencia_grave_marzo_abril_mayo_2023.csv", encoding="UTF-8")
+ bd_asis <- fread("Inputs/20231120_inasistencia_grave_octubre.csv", encoding="UTF-8")                  #fread("Inputs/20230624_inasistencia_grave_marzo_abril_mayo_2023.csv", encoding="UTF-8")
  colnames(bd_asis) <- tolower(colnames(bd_asis))
  colnames(bd_asis)
 
@@ -54,11 +54,11 @@ reticulate::use_miniconda('r-reticulate')
  
  
  #Desvinculados intranual
- bd_desvinc_intran <- fread("Inputs/retirados_sin_mat_agosto_parv_val_v2.csv", encoding="UTF-8")
+ bd_desvinc_intran <- fread("Inputs/retirados_sin_mat_octubre_parv_val_v2.csv", encoding="UTF-8")
  colnames(bd_desvinc_intran) <- tolower(colnames(bd_desvinc_intran))
  bd_desvinc_intran <- bd_desvinc_intran %>% mutate(rbd_ret = rbd)
  bd_desvinc_intran <- bd_desvinc_intran %>% mutate(run_alu2 = ifelse(dgv_alu != "", paste0(run_alu, "-", dgv_alu), run_alu))
- bd_desvinc_intran <- bd_desvinc_intran %>% mutate(gen_alu = case_when(gen_alu == 1 ~ "M", gen_alu == 2 ~ "F", gen_alu == 0 ~ ""))
+ bd_desvinc_intran <- bd_desvinc_intran %>% mutate(gen_alu = case_when(gen_alu == 1 ~ "M", gen_alu == 2 ~ "F", gen_alu == 0 ~ "", TRUE ~ ""))
  head(bd_desvinc_intran$run_alu2)
  nrow(bd_desvinc_intran)
  
@@ -109,15 +109,15 @@ colnames(bd_desvinc_intran_r)
  #Unión bd_desvinc e intraanual
  bd <- full_join(bd, bd_desvinc_intran_r, by = "run_alu")
  
- table(bd$desert_glob_total_aju_agosto_2023, bd$desertor_intra, useNA = "ifany")
+ table(bd$desert_glob_total_aju_octubre_2023, bd$desertor_intra, useNA = "ifany")
  
  colnames(bd)
  
  #Se define categoría para tablas de deserción
- bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_agosto_2023 == 1 & desertor_intra == 1, "Retirado 2023", "otro"))
- bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_agosto_2023 == 0, "No desertor", categoria_desert))
+ bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 1 & desertor_intra == 1, "Retirado 2023", "otro"))
+ bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 0, "No desertor", categoria_desert))
  bd <- bd %>% mutate(categoria_desert = ifelse(desertor_intra == 1 , "Retirado 2023", categoria_desert))
- bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_agosto_2023 == 1 & is.na(desertor_intra), "Desercion incidencia", categoria_desert))
+ bd <- bd %>% mutate(categoria_desert = if_else(desert_glob_total_aju_octubre_2023 == 1 & is.na(desertor_intra), "Desercion incidencia", categoria_desert))
 
  
  
@@ -156,7 +156,7 @@ colnames(bd_desvinc_intran_r)
  
  #Ajustes en renombre de etiquetas de la base de dobles desvinculados
  doble_desvinc <- left_join(doble_desvinc, nom_grad, by = c("cod_ense" = "cod_ense", "cod_grado" = "cod_grado"))
- doble_desvinc <- doble_desvinc %>% mutate(gen_alu = case_when(gen_alu == 1 ~ "M", gen_alu == 2 ~ "F", gen_alu == 0 ~ ""))
+ doble_desvinc <- doble_desvinc %>% mutate(gen_alu = case_when(gen_alu == 1 ~ "M", gen_alu == 2 ~ "F", gen_alu == 0 ~ "", TRUE ~ ""))
  doble_desvinc <- doble_desvinc %>% mutate(sit_fin_r = case_when(is.na(sit_fin_r) | sit_fin_r == "" | sit_fin_r == "Z" ~ "Sin Registro", sit_fin_r == "P" ~ "Promovido", sit_fin_r == "R" ~ "Reprobado", sit_fin_r == "Y" ~ "Retirado"))
  doble_desvinc <- doble_desvinc %>% mutate(run_alu2 = ifelse(dgv_alu != "", paste0(run_alu, "-", dgv_alu), run_alu))
  
@@ -272,7 +272,8 @@ resumen_asis_ee <- bd_asis %>%
                   summarise(asis_marzo= mean(porcentage_asistencia_marzo, na.rm = TRUE),
                             asis_abril = mean(porcentage_asistencia_abril, na.rm = TRUE), asis_mayo = mean(porcentage_asistencia_mayo, na.rm = TRUE),
                             asis_junio = mean(porcentage_asistencia_junio, na.rm = TRUE), asis_julio = mean(porcentage_asistencia_julio, na.rm = TRUE), asis_agosto = mean(porcentage_asistencia_agosto, na.rm = TRUE),
-                            # asis_septiembre = mean(porcentage_asistencia_septiembre, na.rm = TRUE), asis_octubre = mean(porcentage_asistencia_octubre, na.rm = TRUE), asis_noviembre = mean(porcentage_asistencia_noviembre, na.rm = TRUE),
+                            asis_septiembre = mean(porcentage_asistencia_septiembre, na.rm = TRUE), asis_octubre = mean(porcentage_asistencia_octubre, na.rm = TRUE),
+                            #asis_noviembre = mean(porcentage_asistencia_noviembre, na.rm = TRUE),
                             asis_promedio = mean(porcentage_asistencia_acumulada, na.rm = TRUE), n_total = n(), n = sum(inasistencia_grave_acumulada, na.rm = T))
 
 table(bd_asis$inasistencia_grave_acumulada, useNA = "a")
@@ -548,7 +549,8 @@ xsl_asis_ee_cur <- bd_asis %>% filter(cod_depe2 != 3) %>% group_by(rbd, cod_curs
                                                                                                                    asis_abril = mean(porcentage_asistencia_abril, na.rm = TRUE), asis_mayo = mean(porcentage_asistencia_mayo, na.rm = TRUE), 
                                                                                                                    asis_junio = mean(porcentage_asistencia_junio, na.rm = TRUE),
                                                                                                                    asis_julio = mean(porcentage_asistencia_julio, na.rm = TRUE), asis_agosto = mean(porcentage_asistencia_agosto, na.rm = TRUE), 
-                                                                                                                   # asis_septiembre = mean(porcentage_asistencia_septiembre, na.rm = TRUE), asis_octubre = mean(porcentage_asistencia_octubre, na.rm = TRUE), asis_noviembre = mean(porcentage_asistencia_noviembre, na.rm = TRUE),
+                                                                                                                   asis_septiembre = mean(porcentage_asistencia_septiembre, na.rm = TRUE), asis_octubre = mean(porcentage_asistencia_octubre, na.rm = TRUE),
+                                                                                                                   #asis_noviembre = mean(porcentage_asistencia_noviembre, na.rm = TRUE),
                                                                                                                    asis_promedio = mean(porcentage_asistencia_acumulada, na.rm = TRUE), n_total = n(), n = sum(inasistencia_grave_acumulada, na.rm = T))
 xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(porc_asis_crit = ifelse(n_total > 0, round(n/n_total,3), 0))
 xsl_asis_ee_cur <- xsl_asis_ee_cur %>% ungroup()
@@ -559,8 +561,8 @@ xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_mayo = round(asis_mayo, 3))
 xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_junio = round(asis_junio, 3)) #paste0(round(asis_mayo*100, 1),"%"))
 xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_julio = round(asis_julio, 3))
 xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_agosto = round(asis_agosto, 3))
-# xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_septiembre = round(asis_septiembre, 3)) 
-# xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_octubre = round(asis_octubre, 3))
+xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_septiembre = round(asis_septiembre, 3))
+xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_octubre = round(asis_octubre, 3))
 # xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_noviembre = round(asis_noviembre, 3))
 xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(asis_promedio = round(asis_promedio, 3))        #paste0(round(asis_promedio*100, 1),"%"))
 xsl_asis_ee_cur <- xsl_asis_ee_cur %>% mutate(porc_asis_crit = round(porc_asis_crit, 3))       #paste0(round(porc_asis_crit*100, 1),"%"))
@@ -602,7 +604,8 @@ xsl_asis_ee <- bd_asis %>% filter(cod_depe2 != 3) %>% group_by(rbd) %>% summaris
                                                                                                     asis_abril = mean(porcentage_asistencia_abril, na.rm = TRUE), asis_mayo = mean(porcentage_asistencia_mayo, na.rm = TRUE), 
                                                                                                      asis_junio = mean(porcentage_asistencia_junio, na.rm = TRUE), 
                                                                                                      asis_julio = mean(porcentage_asistencia_julio, na.rm = TRUE), asis_agosto = mean(porcentage_asistencia_agosto, na.rm = TRUE), 
-                                                                                                    # asis_septiembre = mean(porcentage_asistencia_septiembre, na.rm = TRUE), asis_octubre = mean(porcentage_asistencia_octubre, na.rm = TRUE), asis_noviembre = mean(porcentage_asistencia_noviembre, na.rm = TRUE),
+                                                                                                    asis_septiembre = mean(porcentage_asistencia_septiembre, na.rm = TRUE), asis_octubre = mean(porcentage_asistencia_octubre, na.rm = TRUE),
+                                                                                                    #asis_noviembre = mean(porcentage_asistencia_noviembre, na.rm = TRUE),
                                                                                                     asis_promedio = mean(porcentage_asistencia_acumulada, na.rm = TRUE), n_total = n(), n = sum(inasistencia_grave_acumulada, na.rm = T))
 xsl_asis_ee <- xsl_asis_ee %>% mutate(porc_asis_crit = ifelse(n_total > 0, round(n/n_total,3), 0))
 xsl_asis_ee <- xsl_asis_ee %>% ungroup()
@@ -613,8 +616,8 @@ xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_mayo = round(asis_mayo, 3))
 xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_junio = round(asis_junio, 3))
 xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_julio = round(asis_julio, 3))
 xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_agosto = round(asis_agosto, 3))
-# xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_septiembre = round(asis_septiembre, 3))
-# xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_octubre = round(asis_octubre, 3))
+xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_septiembre = round(asis_septiembre, 3))
+xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_octubre = round(asis_octubre, 3))
 # xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_noviembre = round(asis_noviembre, 3))
 xsl_asis_ee <- xsl_asis_ee %>% mutate(asis_promedio = round(asis_promedio, 3))        #paste0(round(asis_promedio*100, 1),"%"))
 xsl_asis_ee <- xsl_asis_ee %>% mutate(porc_asis_crit = round(porc_asis_crit, 3))       #paste0(round(porc_asis_crit*100, 1),"%"))
@@ -668,7 +671,8 @@ xls_desvinc_ee_cur$cod_depe2_2022r <- factor(xls_desvinc_ee_cur$cod_depe2, level
 xsl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd, nom_rbd, cod_reg_rbd2022r2, nom_com_rbd, rut_sost_rbd2022, asis_marzo, 
                                                     asis_abril, asis_mayo,
                                                     asis_junio, asis_julio, asis_agosto,
-                                                    #asis_septiembre, asis_octubre, asis_noviembre,
+                                                    asis_septiembre, asis_octubre,
+                                                    #asis_noviembre,
                                                     # asis_promedio, n_total, n, porc_asis_crit, "1", "2", "3", "4", "5", "NA", porc1, porc2, porc3,
                                                     asis_promedio, n_total, n, porc_asis_crit, "1", "2", "3", "4", "NA", porc1, porc2, porc3, porc4, sin_info) # n_total2
 
@@ -677,7 +681,8 @@ xsl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd
 xsl_asis_ee_cur <- xsl_asis_ee_cur %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd, nom_rbd, cod_reg_rbd2022r2, nom_com_rbd, rut_sost_rbd2022, cod_curso, asis_marzo, 
                                                             asis_abril, asis_mayo,
                                                             asis_junio, asis_julio, asis_agosto,
-                                                            #asis_septiembre, asis_octubre, asis_noviembre,
+                                                            asis_septiembre, asis_octubre,
+                                                            #asis_noviembre,
                                                             # asis_promedio, n_total, n, porc_asis_crit, "1", "2", "3", "4", "5", "NA", porc1, porc2, porc3, porc4, porc5) # n_total2
                                                             asis_promedio, n_total, n, porc_asis_crit, "1", "2", "3", "4", "NA", porc1, porc2, porc3, porc4, sin_info) # n_total2
 
@@ -697,7 +702,8 @@ tbl_desvinc_ee <- xls_desvinc_ee %>% select(rbd_2022r, n_mat_teo_total23, desv_t
 tbl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd, nom_rbd, nom_com_rbd, asis_marzo, 
                                       asis_abril, asis_mayo,
                                       asis_junio, asis_julio, asis_agosto,
-                                      #asis_septiembre, asis_octubre, asis_noviembre,
+                                      asis_septiembre, asis_octubre,
+                                      #asis_noviembre,
                                       asis_promedio, n_total, n, porc_asis_crit)
 
   #resumen_rbd <- left_join(tbl_asis_ee, tbl_desvinc_ee, by = c("rbd"="rbd_2022r"))
@@ -751,12 +757,14 @@ tbl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd
   
   resumen_rbd <- resumen_rbd %>% select("rut_sost_rbd2022", "nombre_sost_rbd2022", "asis_marzo", "asis_abril", "asis_mayo",
                                          "asis_junio", "asis_julio", "asis_agosto",
-                                        #"asis_septiembre", "asis_octubre", "asis_noviembre",
+                                        "asis_septiembre", "asis_octubre",
+                                        #"asis_noviembre",
                                         "asis_promedio", "n_total2", "n", "porc_asis_crit", "1", "2",  "3", "4", "NA", "porc1", "porc2", "porc3", "porc4", "sin_info", "n_mat_teo_total23", "desv_total23", "porc_total23", "n_ret", "n_desv", "n_dobledesv")
   
   colnames(resumen_rbd) <- c("rut_sost_rbd2022", "Nombre SLEP", "Asistendia promedio marzo", "Asistendia promedio abril", "Asistendia promedio mayo",
                              "Asistendia promedio junio", "Asistendia promedio julio", "Asistendia promedio agosto",
-                             #"Asistencia promedio sept.", "Asistencia promedio octubre", "Asistencia promedio nov.",
+                             "Asistencia promedio sept.", "Asistencia promedio octubre",
+                             #"Asistencia promedio nov.",
                              "Asistencia promedio acumulada", "Matrícula 2023", "N° estud. con asistencia <85%", "% estud. con asistencia <85%", "N° Estudiantes con 0-49% asistencia", "N° Estudiantes con 50-84% asistencia", 
                              "N° Estudiantes con 85-89% asistencia", "N° Estudiantes con 90-100% asistencia", "N° Estudiantes sin información", "% Estudiantes con 0-49% asistencia", "% Estudiantes con 50-84% asistencia", 
                              "% Estudiantes con 85-89% asistencia", "% Estudiantes con 90-100% asistencia", "% Estudiantes sin información",   
@@ -773,7 +781,8 @@ tbl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd
   
   colnames(xsl_asis_ee_cur) <- c("rut_sost_rbd2022", "Nombre SLEP", "RBD", "Nombre Establecimiento", "Región", "Comuna", "Grado 2023", "Asistencia promedio marzo", "Asistencia promedio abril", "Asistencia promedio mayo",
                                  "Asistencia promedio junio","Asistencia promedio julio","Asistencia promedio agosto",
-                                 #"Asistencia promedio septiembre", "Asistencia promedio octubre", "Asistencia promedio noviembre",
+                                 "Asistencia promedio septiembre", "Asistencia promedio octubre",
+                                 #"Asistencia promedio noviembre",
                                  "Asistencia promedio acumulada", "N° Estudiantes totales", "N° estudiantes con asistencia <85%", "% estudiantes con asistencia <85%", "N° Estudiantes con 0-49% asistencia", "N° Estudiantes con 50-84% asistencia", 
                                  "N° Estudiantes con 85-89% asistencia", "N° Estudiantes con 90-100% asistencia", "N° Estudiantes sin información", "% Estudiantes con 0-49% asistencia", "% Estudiantes con 50-84% asistencia", 
                                  "% Estudiantes con 85-89% asistencia", "% Estudiantes con 90-100% asistencia", "% Estudiantes sin información")
@@ -783,7 +792,8 @@ tbl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd
   colnames(xsl_asis_ee) <- c("rut_sost_rbd2022", "Nombre SLEP", "RBD", "Nombre Establecimiento", "Región", "Comuna", "Asistencia promedio marzo",
                              "Asistencia promedio abril", "Asistencia promedio mayo",
                              "Asistencia promedio junio","Asistencia promedio julio","Asistencia promedio agosto",
-                             #"Asistencia promedio septiembre", "Asistencia promedio octubre", "Asistencia promedio noviembre", 
+                             "Asistencia promedio septiembre", "Asistencia promedio octubre",
+                             #"Asistencia promedio noviembre", 
                              "Asistencia promedio acumulada", "N° Estudiantes totales",  "N° estudiantes con asistencia <85%", "% estudiantes con asistencia <85%", "N° Estudiantes con 0-49% asistencia", "N° Estudiantes con 50-84% asistencia", 
                              "N° Estudiantes con 85-89% asistencia", "N° Estudiantes con 90-100% asistencia", "N° Estudiantes sin información",
                              "% Estudiantes con 0-49% asistencia", "% Estudiantes con 50-84% asistencia", "% Estudiantes con 85-89% asistencia", "% Estudiantes con 90-100% asistencia", "% Estudiantes sin información")
@@ -963,7 +973,8 @@ tbl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd
         resumen_asis_sost <- resumen_asis_sost %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, asis_promedio, asis_marzo, 
                                                           asis_abril, asis_mayo,
                                                           asis_junio, asis_julio, asis_agosto,
-                                                          #asis_septiembre, asis_octubre, asis_noviembre, 
+                                                          asis_septiembre, asis_octubre,
+                                                          #asis_noviembre, 
                                                           #n_total, n, porc_asis_crit, porc1, porc2, porc3, porc4, porc5)
                                                           n_total, n, porc_asis_crit, porc1, porc2, porc3, porc4, sin_info)
         
@@ -973,8 +984,8 @@ tbl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd
         resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_junio = paste0(round(asis_junio*100, 1),"%"))
         resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_julio = paste0(round(asis_julio*100, 1),"%"))
         resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_agosto = paste0(round(asis_agosto*100, 1),"%"))
-        # resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_septiembre = paste0(round(asis_septiembre*100, 1),"%"))
-        # resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_octubre = paste0(round(asis_octubre*100, 1),"%"))
+        resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_septiembre = paste0(round(asis_septiembre*100, 1),"%"))
+        resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_octubre = paste0(round(asis_octubre*100, 1),"%"))
         # resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_noviembre = paste0(round(asis_noviembre*100, 1),"%"))
         resumen_asis_sost <- resumen_asis_sost %>% mutate(asis_promedio = paste0(round(asis_promedio*100, 1),"%"))
         resumen_asis_sost <- resumen_asis_sost %>% mutate(porc_asis_crit = paste0(round(porc_asis_crit*100, 1),"%"))
@@ -1333,10 +1344,10 @@ tbl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd
       # ## 3.2 RENDER  ----------------------------------------------------------------
       # #**************************************************************************************************************************/
       #
-      rmarkdown::render("Codigos/DEP/RMKD Informe DEP (EPJA).Rmd",
+      rmarkdown::render("Codigos/5 - DEP/RMKD Informe DEP (EPJA).Rmd",
                         params = list("cod_deprov" = rut_sost, "nom_deprov" = nom_sost, "desvinc" = desvinc, "desvinc2" = desvinc2, "desvinc3" = desvinc3, "asis_crit" = asis_crit, "url_sin_fin_g" = url_sin_fin_g, "url_cur_desv_g" = url_cur_desv_g, "url_asis_crit_g" = url_asis_crit_g, "url_sost_desv_g" = url_sost_desv_g, "url_sost_desv_g_2" = url_sost_desv_g_2, "url_cur_desv_g_2" = url_cur_desv_g_2, "url_sost_asist_g" = url_sost_asist_g,
                                       "url_sost_asisgrave_g" = url_sost_asisgrave_g, "n_mat2022" = n_mat2022, "n_desvinc" = n_desvinc, "n_desvinc2" = n_desvinc2, "n_desvinc3" = n_desvinc3, "n_mat2023" = n_mat2023, "n_mat_asis2023" = n_mat_asis2023, "n_inasis2023" = n_inasis2023, "textos_variables_desvinculados" = textos_variables_desvinculados, "textos_variables_retirados" = textos_variables_retirados, "textos_variables_asistencia" = textos_variables_asistencia, "textos_variables_doble_desvinculados" = textos_variables_doble_desvinculados, "pass" = pass, "resumen_asis_sost" = resumen_asis_sost, "resumen_desvinc_sost" = resumen_desvinc_sost, "resumen_rbd" = resumen_rbd_ee),
-                        output_file = paste0("Outputs/DEP (EPJA)/", "DEP (EPJA)", ".pdf"))
+                        output_file = paste0("Outputs/DEP/", "DEP (EPJA)", ".pdf"))
       print(paste0("Listo ", i ," de ", nn, " Sost. (Codigo: ", "DEP", ")"))
 
 
@@ -1384,13 +1395,13 @@ tbl_asis_ee <- xsl_asis_ee %>% select(rut_sost_rbd2022, nombre_sost_rbd2022, rbd
   
   pct = createStyle(numFmt="0.0%")
   #addStyle(wb, "Resumen datos SLEP", style=pct, cols=c(2,3,6, 12:15, 18), rows=2:(nrow(resumen_rbd)+1), gridExpand=TRUE)
-  addStyle(wb, "Resumen datos SLEP", style=pct, cols=c(3:9,12, 18:22, 25), rows=2:(nrow(resumen_rbd)+1), gridExpand=TRUE)
+  addStyle(wb, "Resumen datos SLEP", style=pct, cols=c(3:11,14, 20:24, 27), rows=2:(nrow(resumen_rbd)+1), gridExpand=TRUE)
   addStyle(wb, "Resumen no matric x RBD", style=pct, cols=c(8), rows=2:(nrow(xls_desvinc_ee_deprov)+1), gridExpand=TRUE)
   # addStyle(wb, "Resumen no matric x RBD y grado", style=pct, cols=c(8), rows=2:(nrow(xls_desvinc_ee_cur_deprov)+1), gridExpand=TRUE)
-  addStyle(wb, "Resumen asist x RBD", style=pct, cols=c(6:12, 15, 21:25), rows=2:(nrow(xsl_asis_ee_deprov)+1), gridExpand=TRUE)
-  addStyle(wb, "Resumen asist x RBD y grado", style=pct, cols=c(7:13, 16, 22:27), rows=2:(nrow(xsl_asis_ee_cur_deprov)+1), gridExpand=TRUE)
+  addStyle(wb, "Resumen asist x RBD", style=pct, cols=c(6:14, 17, 23:27), rows=2:(nrow(xsl_asis_ee_deprov)+1), gridExpand=TRUE)
+  addStyle(wb, "Resumen asist x RBD y grado", style=pct, cols=c(7:15, 18, 23:28), rows=2:(nrow(xsl_asis_ee_cur_deprov)+1), gridExpand=TRUE)
   
-  saveWorkbook(wb, paste0("Outputs/DEP (EPJA)/", "DEP", " (EPJA).xlsx"), overwrite = T)
+  saveWorkbook(wb, paste0("Outputs/DEP/", "DEP", " (EPJA).xlsx"), overwrite = T)
   
     toc()
 }
