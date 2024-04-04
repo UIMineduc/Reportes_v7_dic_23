@@ -314,8 +314,16 @@ nn
 AHÍ SE AÑADIERON VARIOS VECTORES PARA SACAR ASIGNACIONES DE LA MEMORIA,
 TAMBIÉN SE PARAMETRIZARON LOS GRAFICOS Y LAS TABLAS (NO TODAS)"
 "Testing"
-rbds1 <- 1
+rbds1 <- c(7,8,9,10)
 {
+  
+  bd <- bd %>% select("run_alu2", "nom_alu2022", "app_alu2022", "apm_alu2022", "gen_alu_2022r", "edad_alu_2022r", "nom_com_alu2022", "nom_grado_2022r", "prom_gral2022", "asistencia2022", "sit_fin_r_2022r", 
+                      "rbd_2022r", "nom_rbd_2022r", "cod_depe2_2022r", "cod_reg_rbd2022r2", "nom_com_rbd_2022r", "nom_deprov_rbd2022", "nombre_sost_rbd2022", "rut_sost_rbd2022", "email_sost_rbd2022",  "tel_sost_rbd", "cert_val_22", "valid_estud", "categoria_desert")
+  
+  bd2 <- bd2 %>% select("run_alu2_ret", "nom_alu_ret", "app_alu_ret", "apm_alu_ret", "gen_alu_ret", "edad_alu_ret", "nom_com_alu_ret", "nom_grado", "fec_ret_rbd_ret", "valid_estud", "categoria_desert")
+  
+  doble_desvinc <- doble_desvinc %>% select("run_alu2", "nom_alu", "app_alu", "apm_alu", "gen_alu", "edad_alu", "nom_com_alu", "nom_grado", "sit_fin_r", "rbd", "nom_rbd", "cod_depe2", "cod_reg_rbd", "nom_com_rbd", "cert_val_21", "cert_val_22", "insc_val_23") # cert vald 21? muchos vacios
+  
   
   # ee = rbds0[10]
   for(ee in rbds1){ #rbds1[1]){     #(ee in quinto1$`0`){   #for(ee in unique(bd_asis$rbd)){ #9810 EEFRANI #3055 #3573 no tiene desvinc  #c(9647, 9648, 9653, 9654, 9655)
@@ -349,18 +357,14 @@ rbds1 <- 1
       n_desvinc2 <- nrow(desvinc2)
       n_desvinc3 <- nrow(desvinc3)
       
-      desvinc <- desvinc %>% select("run_alu2", "nom_alu2022", "app_alu2022", "apm_alu2022", "gen_alu_2022r", "edad_alu_2022r", "nom_com_alu2022", "nom_grado_2022r", "prom_gral2022", "asistencia2022", "sit_fin_r_2022r", 
-                                    "rbd_2022r", "nom_rbd_2022r", "cod_depe2_2022r", "cod_reg_rbd2022r2", "nom_com_rbd_2022r", "nom_deprov_rbd2022", "nombre_sost_rbd2022", "rut_sost_rbd2022", "email_sost_rbd2022",  "tel_sost_rbd", "cert_val_22", "valid_estud")
       desvinc <- desvinc %>% arrange(nom_grado_2022r)
       
       
-      desvinc2 <- desvinc2 %>% select("run_alu2_ret", "nom_alu_ret", "app_alu_ret", "apm_alu_ret", "gen_alu_ret", "edad_alu_ret", "nom_com_alu_ret", "nom_grado", "fec_ret_rbd_ret", "valid_estud")
       desvinc2 <- desvinc2 %>% arrange(nom_grado)   #(nom_grado_2022r)
       
       #desvinc3 <- desvinc3 %>% select("run_alu2", "nom_alu", "app_alu", "apm_alu", "gen_alu", "edad_alu", "nom_com_alu", "nom_grado", "sit_fin_r", "rbd", "nom_rbd", "cod_depe2", "cod_reg_rbd", "nom_com_rbd", "cert_val_22") # cert vald 21? muchos vacios
       #"nom_deprov_rbd2022", "nombre_sost_rbd2022", "rut_sost_rbd2022", "email_sost_rbd2022",  "tel_sost_rbd", "valid_estud")
       
-      desvinc3 <- desvinc3 %>% select("run_alu2", "nom_alu", "app_alu", "apm_alu", "gen_alu", "edad_alu", "nom_com_alu", "nom_grado", "sit_fin_r", "rbd", "nom_rbd", "cod_depe2", "cod_reg_rbd", "nom_com_rbd", "cert_val_21", "cert_val_22", "insc_val_23") # cert vald 21? muchos vacios
       desvinc3 <- desvinc3 %>% arrange(nom_grado)
       
       ########## SE EXTRAEN LOS CASOS DE INASISTENCIA Y PARAMETROS 
